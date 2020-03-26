@@ -1,0 +1,37 @@
+<html>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<body>
+    <h1>使用了模板引擎，可以直接看到我！</h1>
+    <form action="/addTimeLine" method="GET">
+        <h1>随便输入：</h1>
+        <input type="text" name="title">
+        <input type="text" name="type">
+        <input type="text" name="time">
+        <input type="text" name="status">
+        <input type="text" name="content">
+
+        <button type="button" οnclick="ceateItem()">新增</button>
+
+    </form>
+    <button type="button" οnclick="searchItem()">查询</button>
+</body>
+<head>
+<script>
+    function searchItem() {
+        
+        console.log('按钮被点击')
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/abc",
+                data: '',
+                dataType: "json",
+                success: function(data){
+                    console.log(data); 
+                }
+            });
+    }
+
+
+</script>
+</head>
+</html>
