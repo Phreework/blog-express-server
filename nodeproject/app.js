@@ -1,20 +1,42 @@
-var {mongoose,Timeline} = require('./db');
+var {mongoose,Timeline,Photo,Article} = require('./db');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var fs = require('fs');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+
+var photos = require('./routes/photos');
+
+var webPath = "http://localhost:3000";
 // var testRouter = require('./routes/test');
 
 var app = express();
 
+
+//配置multer
+var multer = require('multer');
+var storage = multer.diskStorage({
+    //设置图片上传后存放的路径(默认放在系统临时文件夹中)
+    destination: function(req,file,cb){
+        cb(null,'./public/images');
+    },
+    //设置图片上传后图片的名称(默认随机给一个名字)
+    filename: function(req,file,cb){
+        cb(null,file.originalname);
+    }
+});
+var upload = multer({
+    storage:storage
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-var ejs = require('ejs');
-app.engine('html', ejs.__express);
-app.set('view engine', 'html');
+// var ejs = require('ejs');
+// app.engine('html', ejs.__express);
+app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -22,8 +44,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/test', indexRouter);
+// app.use('/', indexRouter);
+// app.use('/photos', indexRouter);
 
 // catch 404 and forward to error handler
 // app.use(function (req, res, next) {
@@ -77,7 +99,49 @@ app.get('/searchTimeLine', function (req, res, next) {
     });
 
 });
+app.get('/searchArticle', function (req, res, next) {
 
+  Article.
+  find().
+  sort('time').
+  exec(function (err, aa, count) {
+    res.send(aa);
+  });
 
-
+});
+let root =  path.join(__dirname, './public/images');
+//图片服务
+//首页
+app.get('/', photos.list);
+//图片上传页
+app.get('/upload', photos.form);
+//响应图片上传
+app.post('/upload', upload.single('file'), photos.submit(root));
+//单张图片查看
+app.get('/photo/:id/view',photos.view(root));
+//图片下载
+app.get('/photo/:id/download', photos.download(root));
+//图片接口	
+app.get('/getImage', function(req, res, next) {
+  //建议使用绝对路径查找图片
+  Photo.
+  find({name:req.query.name}).
+  exec(function (err, aa, count) {
+    const rs = fs.createReadStream(root + '/' + aa[0].path);
+    rs.pipe(res);
+  });
+	// const rs = fs.createReadStream('../../../image/' + req.params.name);
+	// rs.pipe(res);
+});
+app.get('/getImageUrl', function(req, res, next) {
+  //建议使用绝对路径查找图片
+  Photo.
+  find({name:req.query.name}).
+  exec(function (err, aa, count) {
+    let url = webPath + "/photo/"+aa[0].id+"/view";
+    res.send(url);
+  });
+	// const rs = fs.createReadStream('../../../image/' + req.params.name);
+	// rs.pipe(res);
+});
 module.exports = app;
