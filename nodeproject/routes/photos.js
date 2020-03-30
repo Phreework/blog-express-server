@@ -1,4 +1,4 @@
-var {mongoose,Timeline,Photo,Article} = require('../db');
+var {mongoose,Timeline,Photo,Article,Essay} = require('../db');
 var path = require('path');
 
 // GET '/' 首页

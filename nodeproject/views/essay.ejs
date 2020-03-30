@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <p>上传图片和html文件</p>
+    <form method="POST" action="/essay" enctype="multipart/form-data">
+        <p>
+            文章名
+            <input type="text" name="name" placeholder="Name">
+        </p>
+        <p>
+            概览
+            <input type="text" name="summary" placeholder="summary">
+        </p>
+        <p>
+            图片
+            <input type="file" name="imgfile" id="imgfile" required>
+        </p>
+        <p>
+            文本
+            <input type="file" name="htmlfile" id="htmlfile" required>
+        </p>
+        <p>
+            <input type="submit" value="上传">
+        </p>
+    </form>
+</body>
+</html>

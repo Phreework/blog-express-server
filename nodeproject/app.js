@@ -1,4 +1,4 @@
-var {mongoose,Timeline,Photo,Article} = require('./db');
+var { mongoose, Timeline, Photo, Article, Essay } = require('./db');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -8,9 +8,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 
-var photos = require('./routes/photos');
+// var photos = require('./routes/photos');
+var essays = require('./routes/essays');
 
-var webPath = "http://localhost:3000";
+var localPath = "http://localhost:3000";
 // var testRouter = require('./routes/test');
 
 var app = express();
@@ -19,18 +20,32 @@ var app = express();
 //配置multer
 var multer = require('multer');
 var storage = multer.diskStorage({
-    //设置图片上传后存放的路径(默认放在系统临时文件夹中)
-    destination: function(req,file,cb){
-        cb(null,'./public/images');
-    },
-    //设置图片上传后图片的名称(默认随机给一个名字)
-    filename: function(req,file,cb){
-        cb(null,file.originalname);
-    }
+  //设置图片上传后存放的路径(默认放在系统临时文件夹中)
+  destination: function (req, file, cb) {
+    cb(null, './public/essayimages');
+  },
+  //设置图片上传后图片的名称(默认随机给一个名字)
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
 });
-var upload = multer({
-    storage:storage
+var uploadImg = multer({
+  storage: storage
 });
+// var multer = require('multer');
+// var storage = multer.diskStorage({
+//     //设置图片上传后存放的路径(默认放在系统临时文件夹中)
+//     destination: function(req,file,cb){
+//         cb(null,'./public/images');
+//     },
+//     //设置图片上传后图片的名称(默认随机给一个名字)
+//     filename: function(req,file,cb){
+//         cb(null,file.originalname);
+//     }
+// });
+// var upload = multer({
+//     storage:storage
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -90,8 +105,7 @@ app.get("/addTimeLine", function (request, response) {
 })
 
 app.get('/searchTimeLine', function (req, res, next) {
-
-    Timeline.
+  Timeline.
     find().
     sort('time').
     exec(function (err, aa, count) {
@@ -102,46 +116,111 @@ app.get('/searchTimeLine', function (req, res, next) {
 app.get('/searchArticle', function (req, res, next) {
 
   Article.
-  find().
-  sort('time').
-  exec(function (err, aa, count) {
-    res.send(aa);
-  });
+    find().
+    sort('time').
+    exec(function (err, aa, count) {
+      res.send(aa);
+    });
 
 });
-let root =  path.join(__dirname, './public/images');
+
+// let root =  path.join(__dirname, './public/images');
+// //图片服务
+// //首页
+// app.get('/', photos.list);
+// //图片上传页
+// app.get('/upload', photos.form);
+// //响应图片上传
+// app.post('/upload', upload.single('file'), photos.submit(root));
+// //单张图片查看
+// app.get('/photo/:id/view',photos.view(root));
+// //图片下载
+// app.get('/photo/:id/download', photos.download(root));
+// //图片接口	
+// app.get('/getImageUrl', function(req, res, next) {
+//   //建议使用绝对路径查找图片
+//   Photo.
+//   find({name:req.query.name}).
+//   exec(function (err, aa, count) {
+//     let url = localPath + "/photo/"+aa[0].id+"/view";
+//     res.send(url);
+//   });
+// });
+let root = path.join(__dirname, './public/essayimages');
 //图片服务
 //首页
-app.get('/', photos.list);
+app.get('/', essays.list);
 //图片上传页
-app.get('/upload', photos.form);
+app.get('/essay', essays.form);
 //响应图片上传
-app.post('/upload', upload.single('file'), photos.submit(root));
+app.post('/essay', uploadImg.fields([{ name: 'imgfile', maxCount: 1 }, { name: 'htmlfile', maxCount: 1 }]), essays.submit(root));
 //单张图片查看
-app.get('/photo/:id/view',photos.view(root));
+app.get('/essayimages/:id/view', essays.view(root));
 //图片下载
-app.get('/photo/:id/download', photos.download(root));
+app.get('/essayimages/:id/download', essays.download(root));
 //图片接口	
-app.get('/getImage', function(req, res, next) {
+app.get('/getEssayImageUrl', function (req, res, next) {
   //建议使用绝对路径查找图片
-  Photo.
-  find({name:req.query.name}).
-  exec(function (err, aa, count) {
-    const rs = fs.createReadStream(root + '/' + aa[0].path);
-    rs.pipe(res);
-  });
-	// const rs = fs.createReadStream('../../../image/' + req.params.name);
-	// rs.pipe(res);
+  Essay.
+    find({ name: req.query.name }).
+    exec(function (err, aa, count) {
+      let url = localPath + "/essayimages/" + aa[0].id + "/view";
+      res.send(url);
+    });
 });
-app.get('/getImageUrl', function(req, res, next) {
-  //建议使用绝对路径查找图片
-  Photo.
-  find({name:req.query.name}).
-  exec(function (err, aa, count) {
-    let url = webPath + "/photo/"+aa[0].id+"/view";
-    res.send(url);
-  });
-	// const rs = fs.createReadStream('../../../image/' + req.params.name);
-	// rs.pipe(res);
+
+//文章列表接口
+
+app.get('/getEssayList', function (req, res, next) {
+  Essay.
+    find().
+    sort( 'time').
+    exec(function (err, aa, count) {
+      let data = [];
+      for (let i = 0; i < aa.length; i++) {
+        let url = localPath + "/essayimages/" + aa[i].id + "/view";
+        data.push({
+          name: aa[i].name,
+          time: aa[i].time,
+          summary: aa[i].summary,
+          url: url
+        });
+      }
+      res.send(data);
+      console.log(data);
+    });
+});
+//文章详细内容接口
+app.get('/getEssayInfo', function (req, res, next) {
+
+  Essay.
+    find({ name: req.query.name }).
+    sort({ 'time': 1 }).
+    exec(function (err, aa, count) {
+
+      let url = localPath + "/essayimages/" + aa[0].id + "/view";
+      let data = {
+        name: aa[0].name,
+        time: aa[0].time,
+        summary: aa[0].summary,
+        content: aa[0].content,
+        url: url
+      };
+
+      res.send(data);
+    });
 });
 module.exports = app;
+
+
+// app.get('/getImage', function(req, res, next) {
+//   //建议使用绝对路径查找图片
+//   Photo.
+//   find({name:req.query.name}).
+//   exec(function (err, aa, count) {
+//     const rs = fs.createReadStream(root + '/' + aa[0].path);
+//     rs.pipe(res);
+//   });
+// 	// const rs = fs.createReadStream('../../../image/' + req.params.name);
+// 	// rs.pipe(res);
+// });

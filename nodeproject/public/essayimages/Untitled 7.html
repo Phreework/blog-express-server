@@ -1,0 +1,565 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>《俄狄浦斯王》</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="119f344d-b778-4914-9996-e47054784704" class="page sans"><header><img class="page-cover-image" src="Untitled%207/d3a2a2d95e2ff7466279d7db814d9b1a.jpeg" style="object-position:center 50%"/><h1 class="page-title">《俄狄浦斯王》</h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th>Author</th><td><span class="selected-value">索福克勒斯</span></td></tr><tr class="property-row property-row-url"><th>Link</th><td></td></tr><tr class="property-row property-row-select"><th>Score /5</th><td><span class="selected-value">⭐️⭐️⭐️⭐️⭐️</span></td></tr><tr class="property-row property-row-text"><th>Summary</th><td></td></tr><tr class="property-row property-row-multi_select"><th>Type</th><td><span class="selected-value">神话</span></td></tr><tr class="property-row property-row-text"><th>主题</th><td>最喜欢的短篇作品</td></tr><tr class="property-row property-row-number"><th>挑战天数</th><td>9</td></tr></tbody></table></header><div class="page-body"><p id="6e08ea2a-b120-4045-88bc-17252802beb1" class="">#30天推书挑战#</p><p id="5dabc11f-cbf1-49f5-8165-7eaf0bfc5fc5" class="">Day09-最喜欢的短篇作品</p><p id="8a11685b-56e7-45a0-8f57-7151b99f1bc6" class="">《俄狄浦斯王》</p><p id="928cdb26-4850-4fb0-b880-fdef3edb5e5f" class="">《俄狄浦斯王》为古希腊悲剧作家索福克勒斯，于公元前427年，根据希腊神话中俄狄浦斯的故事所创作的一出希腊悲剧，为希腊悲剧中的代表之作，被称为最伟大的悲剧。也是我最喜欢的短篇作品。</p><p id="9a5d204d-bc7d-4ad2-9010-cb9b3b984f21" class="">神话的篇幅一般不会太长，但神话思维及其启示性是无限的。</p><p id="1f606804-f476-4323-b539-eba00026fb6a" class="">《俄狄浦斯王》展现了一种神秘的必然性，暗示了一种真正支配我们生命的性情。人类群体潜意识中所包含的使命感，一步步走向自己终极命运的仪式感，在苦痛中寻求救赎的复杂性。</p><p id="21a66ccc-2752-445b-9dfe-415b3052ad00" class="">作为一个现代人，你可能相信物理的必然性，相信经济学的必然性，相信基因的必然性，但须知，这些东西建立在你从未真正掌握的空中楼阁之上，只不过是一种随时代被动的随波逐流罢了。</p><p id="ca0a0985-7183-4730-b1ee-8e6df27fed38" class="">而神话思维，却是建立在我们与生俱来的感性认识与生命潜力之上，唾手可得的理解世界的一种方式。</p><p id="bedc34ed-9e9c-48a7-8a34-1a0f9b59de75" class="">所以，放下现代人的身段，感受这个最伟大的神话吧。</p><p id="ebbabc16-78e0-4e95-9289-ffc24f56d8bf" class="">《俄狄浦斯王》</p><p id="5dc8dcd0-0de5-420b-b478-e3e30efa3df0" class="">诅咒</p><p id="15b0a97d-b156-4697-8578-a45113329c73" class="">拉伊俄斯年轻时曾经劫走国王<a href="https://zh.wikipedia.org/wiki/%E7%8F%80%E7%BD%97%E6%99%AE%E6%96%AF">珀罗普斯</a>的儿子<a href="https://zh.wikipedia.org/wiki/%E5%85%8B%E5%BE%8B%E8%A5%BF%E6%B3%A2%E6%96%AF">克律西波斯</a>，因此遭到<a href="https://zh.wikipedia.org/wiki/%E8%A9%9B%E5%92%92">诅咒</a>，他的儿子<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E5%BA%95%E5%B8%95%E6%96%AF">俄狄浦斯</a>出生时，<a href="https://zh.wikipedia.org/wiki/%E7%A5%9E%E8%AB%AD">神谕</a>表示他会被儿子杀死。为了逃避命运，拉伊俄斯刺穿了新生儿的<a href="https://zh.wikipedia.org/wiki/%E8%85%B3%E8%B8%9D">脚踝</a>，并将他丢弃在野外等死。</p><p id="60fb3d29-46f4-432c-9915-4e59b9a6934e" class="">然而奉命执行的牧人心生怜悯，偷偷将婴儿转送给在<a href="https://zh.wikipedia.org/wiki/%E7%A7%91%E6%9E%97%E6%96%AF">科林斯</a>王国工作的牧人，科林斯国的牧人再将婴儿送给科林斯国王<a href="https://zh.wikipedia.org/wiki/%E7%8F%80%E7%BD%97%E6%99%AE%E6%96%AF">珀罗普斯</a>，国王把他当作亲生儿子抚养长大。</p><p id="3f539bbe-19f4-4dc8-8755-d9a95adbb72c" class="">弑父</p><p id="781b6bb9-202a-4155-b713-dae2a94eeb72" class="">有天，<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E5%BA%95%E5%B8%95%E6%96%AF">俄狄浦斯</a>去<a href="https://zh.wikipedia.org/wiki/%E5%BE%B7%E5%B0%94%E6%96%90">德尔斐</a>神殿里请求<a href="https://zh.wikipedia.org/wiki/%E5%A4%AA%E9%99%BD%E7%A5%9E">太阳神</a><a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E6%B3%A2%E7%BE%85">阿波罗</a><a href="https://zh.wikipedia.org/wiki/%E7%A5%9E%E8%AB%AD">神谕</a>，得知自己将来会“弑父娶母”。为避免神谕成真，<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E5%BA%95%E5%B8%95%E6%96%AF">俄狄浦斯</a>便离开科林斯，并发誓永不再回去。<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E5%BA%95%E5%B8%95%E6%96%AF">俄狄浦斯</a>流浪到<a href="https://zh.wikipedia.org/wiki/%E5%BA%95%E6%AF%94%E6%96%AF">底比斯</a>附近时，在三叉路上与一台马车发生冲突，受到马车上的人推挤和攻击，便失手杀了全部的人，其中正包括他的生父拉伊俄斯。</p><p id="d156f7e1-a18d-467e-9e85-4d554a233289" class="">史芬克斯的问题</p><p id="1784e1f3-00d6-407d-a5bc-e84f5be819cb" class="">当时的底比斯城被<a href="https://zh.wikipedia.org/wiki/%E4%BA%BA%E9%9D%A2%E7%8D%85%E8%BA%AB">人面狮身</a>兽<a href="https://zh.wikipedia.org/wiki/%E5%8F%B2%E8%8A%AC%E5%85%8B%E6%96%AF">史芬克斯</a>所困：史芬克斯会抓住每个路过的人，如果对方无法解答他出的谜题，便会将对方撕裂吞食。这个谜语是：“什么动物早晨用四条腿走路，中午用两条腿走路，晚上用三条腿走路？”，谜底是“人”。</p><p id="66189954-3138-48cd-a9b4-310934e9ab13" class="">娶母</p><p id="16d1609a-3f2c-4064-bd95-69cd6b8b6b35" class="">底比斯城为了脱困，便宣布能解开谜题者，可获得王位并娶国王的遗孀<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E4%BF%84%E5%8D%A1%E6%96%AF%E5%BF%92">伊俄卡斯忒</a>为妻。<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E5%BA%95%E5%B8%95%E6%96%AF">俄狄浦斯</a>解开了史芬克斯的谜题，解救了底比斯，于是继承了王位，在不知情下娶了自己的生母为妻，生了两男（埃忒俄克洛斯、波吕涅克斯）和两女（<a href="https://zh.wikipedia.org/wiki/%E5%AE%89%E6%8F%90%E6%88%88%E6%B6%85">安提戈涅</a>、伊斯墨涅）。</p><p id="259c70e2-92fe-43c6-80f5-aa4e0d5daa5a" class="">真相</p><p id="ed6b48f6-5028-490b-b971-2cb0d47d8f80" class="">后来，在<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E5%BA%95%E5%B8%95%E6%96%AF">俄狄浦斯</a>管治下的底比斯不断遭受<a href="https://zh.wikipedia.org/wiki/%E7%81%BD%E7%A6%8D">灾祸</a>与<a href="https://zh.wikipedia.org/wiki/%E7%98%9F%E7%96%AB">瘟疫</a>之苦，于是请托克瑞翁前往德尔斐神殿向<a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E6%B3%A2%E7%BE%85">阿波罗</a>请示神谕，问道为何会降下灾祸。最后在<a href="https://zh.wikipedia.org/wiki/%E5%85%88%E7%9F%A5">先知</a><a href="https://zh.wikipedia.org/wiki/%E6%8F%90%E7%91%9E%E8%A5%BF%E9%98%BF%E6%96%AF">提瑞西阿斯</a>的揭示下，<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E5%BA%95%E5%B8%95%E6%96%AF">俄狄浦斯</a>透过<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E4%BF%84%E5%8D%A1%E6%96%AF%E5%BF%92">伊俄卡斯忒</a>和前王拉伊俄斯的牧人所提供的线索，如侦探般逐渐地追问，<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E5%BA%95%E5%B8%95%E6%96%AF">俄狄浦斯</a>才发现他真正的身份是拉伊俄斯的儿子，最终也应验了他杀父娶母的不幸命运。</p><p id="7695cc33-0b24-4458-8f08-3749ac3c87b4" class="">救赎</p><p id="ec3290ae-3064-481d-bb82-3f99d40af94b" class="">隐约知晓真相的伊俄卡斯忒震惊不已又无法阻止<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E5%BA%95%E5%B8%95%E6%96%AF">俄狄浦斯</a>对身份的追查，伊俄卡斯忒走回宫殿的房间里后便<a href="https://zh.wikipedia.org/wiki/%E4%B8%8A%E5%90%8A">上吊自杀</a>。<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E5%BA%95%E5%B8%95%E6%96%AF">俄狄浦斯</a>也知道真相后，传报人却传来伊俄卡斯忒自杀的消息，<a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E5%BA%95%E5%B8%95%E6%96%AF">俄狄浦斯</a>前往房间抱着伊俄卡斯忒的尸体痛哭，拿起伊俄卡斯忒胸口上的胸针，刺瞎自己的双眼，给予自己比死还要痛苦的惩罚。</p><p id="9010e3f5-583f-42bf-ad6a-ff34b4a9f084" class="">完。</p></div></article></body></html>
