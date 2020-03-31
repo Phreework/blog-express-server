@@ -26,7 +26,7 @@ var storage = multer.diskStorage({
   },
   //设置图片上传后图片的名称(默认随机给一个名字)
   filename: function (req, file, cb) {
-    cb(null, file.originalname);
+    cb(null,  Date.now()+ '-' +file.originalname);
   }
 });
 var uploadImg = multer({
@@ -107,8 +107,14 @@ app.get("/addTimeLine", function (request, response) {
 app.get('/searchTimeLine', function (req, res, next) {
   Timeline.
     find().
-    sort('time').
+    sort({'time':-1}).
     exec(function (err, aa, count) {
+      if (aa.length == 0) {
+        console.log("错误处理")
+        return res.status(400).json({
+          error: '无数据'
+        })
+      }
       res.send(aa);
     });
 
@@ -124,28 +130,6 @@ app.get('/searchArticle', function (req, res, next) {
 
 });
 
-// let root =  path.join(__dirname, './public/images');
-// //图片服务
-// //首页
-// app.get('/', photos.list);
-// //图片上传页
-// app.get('/upload', photos.form);
-// //响应图片上传
-// app.post('/upload', upload.single('file'), photos.submit(root));
-// //单张图片查看
-// app.get('/photo/:id/view',photos.view(root));
-// //图片下载
-// app.get('/photo/:id/download', photos.download(root));
-// //图片接口	
-// app.get('/getImageUrl', function(req, res, next) {
-//   //建议使用绝对路径查找图片
-//   Photo.
-//   find({name:req.query.name}).
-//   exec(function (err, aa, count) {
-//     let url = localPath + "/photo/"+aa[0].id+"/view";
-//     res.send(url);
-//   });
-// });
 let root = path.join(__dirname, './public/essayimages');
 //图片服务
 //首页
@@ -174,8 +158,15 @@ app.get('/getEssayImageUrl', function (req, res, next) {
 app.get('/getEssayList', function (req, res, next) {
   Essay.
     find().
-    sort( 'time').
+    sort({'time':-1}).
     exec(function (err, aa, count) {
+
+      if (aa.length == 0) {
+        console.log("错误处理")
+        return res.status(400).json({
+          error: '无数据'
+        })
+      }
       let data = [];
       for (let i = 0; i < aa.length; i++) {
         let url = localPath + "/essayimages/" + aa[i].id + "/view";
@@ -183,7 +174,8 @@ app.get('/getEssayList', function (req, res, next) {
           name: aa[i].name,
           time: aa[i].time,
           summary: aa[i].summary,
-          url: url
+          url: url,
+          tagList: aa[i].tagList
         });
       }
       res.send(data);
@@ -193,22 +185,34 @@ app.get('/getEssayList', function (req, res, next) {
 //文章详细内容接口
 app.get('/getEssayInfo', function (req, res, next) {
 
+  const name = req.query.name;
+  if (!name) {
+    console.log("错误处理")
+    return res.status(400).json({
+      error: 'Missing name'
+    })
+  }
   Essay.
     find({ name: req.query.name }).
-    sort({ 'time': 1 }).
+    sort({'time':-1}).
     exec(function (err, aa, count) {
-
+      if (err) {
+        return res.status(500).json(err)
+      }
       let url = localPath + "/essayimages/" + aa[0].id + "/view";
       let data = {
         name: aa[0].name,
         time: aa[0].time,
         summary: aa[0].summary,
         content: aa[0].content,
-        url: url
+        url: url,
+        tagList: aa[0].tagList
       };
 
       res.send(data);
+
     });
+
 });
 module.exports = app;
 

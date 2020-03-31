@@ -1,0 +1,667 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>《神经漫游者》以及《三体》</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9afd3d19-91b3-47c7-a275-f5e990fa5210" class="page sans"><header><img class="page-cover-image" src="Untitled%2011/1544837003_1541416023_comment_vzy9nVcyurU3ga1nrRbJBCV94DUJmq05.gif" style="object-position:center 50%"/><h1 class="page-title">《神经漫游者》以及《三体》</h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Author</th><td><span class="selected-value select-value-color-default">威廉·吉布森</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Score /5</th><td><span class="selected-value select-value-color-default">⭐️⭐️⭐️⭐️</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Summary</th><td>《三体》讲了一个好故事。但我不推荐它，因为这本书的精神内核是肤浅而缺乏张力的，它被冠上了黄金时代科幻继承者的名号，但确实远比不上黄金科幻的深度。</td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Type</th><td><span class="selected-value select-value-color-purple">科幻</span><span class="selected-value select-value-color-red">赛博朋克</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>主题</th><td>有名但是你不推荐的一本书</td></tr><tr class="property-row property-row-number"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>挑战天数</th><td>13</td></tr></tbody></table></header><div class="page-body"><h1 id="e98b7f6c-5f2b-4731-8bb1-e1306049ecde" class="">Day13-有名但是你不推荐的一本书</h1><p id="b79528d1-fb25-4445-91c5-eed8b3385250" class="">《神经漫游者》威廉吉布森 OR 《三体》刘慈欣  #30天推书挑战#</p><hr id="0be605cd-ada8-4405-861e-d4b0087735f0"/><p id="48bc0efc-e1fa-46ef-96ad-4a6be74e9464" class="">这两本书我是一起看的。</p><p id="b7a3c5ab-f1fe-47c7-b372-2057d5e6e910" class="">
+</p><p id="9665f345-95cd-4e24-b0a0-beb763006749" class="">我在初三第一次看《三体》，在高一把它读完，那个时候三体还没有大火，我对这本书的观感也很一般，所以对它的感情，仅停留在”不错的国产硬科幻“这样的印象。</p><p id="34429803-166c-41c6-a330-6031563765cb" class="">
+</p><p id="386a512f-6567-4e1c-acbf-9e626a127f9b" class="">同时，我在高一受另一部电影启发，去读了《神经漫游者》，断断续续直到大学时代才看完。</p><p id="b9fa0162-bec6-44a8-9a16-3679bf1d08cb" class="">
+</p><p id="ff78a487-43e5-4154-9f23-ac765169c16d" class="">《三体》讲了一个好故事。但我不推荐它，因为这本书的精神内核是肤浅而缺乏张力的，它被冠上了黄金时代科幻继承者的名号，但确实远比不上黄金科幻的深度。</p><p id="398fafb1-80cd-48ee-8631-81c09122df32" class="">
+</p><p id="72d7054a-12ec-486e-91f1-88c74f14294a" class="">《神经漫游者》也讲了一个好故事。但我不推荐它，因为它提供的张力太强，确实容易使人迷失在相互冲击的语境里。</p><p id="c3306640-f8c2-4414-b8db-1983ea9c7209" class="">
+</p><p id="3f9c7503-a663-484b-809f-359293d5df49" class="">我在这里撒了个谎话，在后面我们揭穿它。</p><p id="42f96e84-dea6-4cf2-bb3e-cf96a15d9bb9" class="">
+</p><h2 id="163590bd-be26-4bbe-94eb-7fccc30e518a" class="">壹-赛博朋克的文脉</h2><p id="961bf0d6-a9af-4549-bcb0-fd21c4a24d51" class="">2012年，我第一次观看电影《银翼杀手》。</p><p id="30b9080f-4217-4084-bd55-56a442f8cb8c" class="">
+</p><p id="dbd26355-4ffc-4fed-9563-883e2cce8564" class="">绚丽的霓虹灯，硬派的人物，发达的科技，混乱的城市，这些赛博朋克元素吸引了当时的我，至少比化学课要吸引我。</p><p id="773a7e94-aca9-48e2-abbf-7bcaf68f1742" class="">
+</p><p id="8658262c-ab74-4b38-b2f4-59681f730b5b" class="">赛博朋克，这个词本身太过晦涩。代表网络的Cyber，被翻译成在中文中没有任何根基的“赛博”，配上朋克（punk）这个似乎是音乐又好像不止于此的词汇，不看看百科，中国人还真没法知道“赛博朋克”是什么。</p><p id="f02c9b3c-af8c-462e-a7f7-21e4ffdf08be" class="">
+</p><p id="8b8292a3-d949-4257-94cb-dbba1ad2656f" class="">在那之后，我又见过了《黑客帝国》，《攻壳机动队》，《网络奇兵》，《无声狂啸》这些或深邃、或惊悚，又或先验的赛博朋克作品。由于今天我们离网络太近，赛博朋克（也就是具有网络背景和反叛精神的文化风格）确实能给人比80年代其诞生之初时更强烈的感受。</p><p id="a21658fa-cefc-4607-a2bd-c403140912a0" class="">
+</p><p id="859f9d72-6d1a-47a0-adce-8bfa4650f12c" class="">没错，八十年代。1984年出版的《神经漫游者》，是赛博朋克无可争议的诞生之作。</p><p id="c13ab8f4-815c-4005-8ae3-b0619f9e43f6" class="">
+</p><h2 id="9b75e7ce-7f75-438c-ad7b-02a518d02ef9" class="">TWO-黄金时代的突然败坏</h2><p id="8b5e0d55-039d-45ac-bda9-368c6405dfc5" class="">我们该如何评价技术？在面对这个问题时，大多人会持有“技术中立性”的观点。</p><p id="1188596a-5560-433d-8185-6a33e98b3660" class="">
+</p><p id="83bc0d47-ad49-4547-bf1b-a5aab6149689" class="">赛博朋克作品最大的社会价值，便是对这种中立性并不存在的洞察，只不过，人们往往在一种技术已然走向败坏的时刻，才察觉到。</p><p id="1b9ca588-ccd3-4734-ba31-3accf64549ed" class="">
+</p><p id="60492eeb-8be3-4115-ad30-320db469cf47" class="">塑料便是其中之一 ，塑料在其被发明出来时，给人类带来了巨大的便利。然而如今，塑料对全球环境，野生动物的危害已难以控制，人类本身也受到了微型塑料的影响，更容易发生梗阻类疾病，在城市中生活，根本不敢直接饮用充满不可见塑料颗粒的自来水。面对这种案例，有谁能自信的说，技术是中立的呢？</p><p id="b7593e04-a67a-4d0f-b120-177267cbfe64" class="">
+</p><p id="ef4b5b8c-c09a-400f-ac09-3934e5247b82" class="">80年代，是网络技术的黄金时代。当时，计算机这门诞生不过三十年的学科，拥有了自己的第一批专家，他们正在各个方向上开拓的二进制的版图。面向对象，数据库，专家系统，神经网络，图形模拟，这些技术一步步由理论走向应用，终于在新世纪迎来爆发，深刻的改变了整个社会。</p><p id="165dce8c-2811-4aaa-a06d-627b061ade48" class="">
+</p><p id="aaf76855-cccf-4068-9f41-3135e1b254fb" class="">然而，计算机以及网络技术带来的风险，也是所有正经历其革命的人有目共睹的。被线上服务逼倒的实体经济，除了带来便利，是否造成了一场更大规模垄断的风险？各色网络媒体的兴起，是一场新闻革命，亦或是将真实消解在了无尽的编造中？基于大数据的个人信息处理，是方便了我们的生活，还是方便了资本家精益收割，分化群体？</p><p id="a6707cf8-e3d6-4097-9281-dfff5e5cda36" class="">
+</p><p id="3def5a8c-b3a0-490b-b333-bdb905aefc7f" class="">计算机及网络技术在迅猛发展，但我们对其危险的重视程度还远远不够。而在80年代，计算机才刚刚兴起之时，威廉吉布森即由其作《神经漫游者》，讲述了这种新兴技术可能导致的一个最糟糕的未来。</p><p id="93e99705-3768-419f-98ba-b10bad8cf552" class="">
+</p><p id="a4fb3d58-4ebc-4f22-a049-64680cbf8aa2" class="">在《神经漫游者》的世界中，网络世界已经发展的无比庞大，庞大到其版图比实体世界更大，更为重要，人们宁愿在现实世界中过着猪狗不如的低下生活，或是铤而走险犯下罪行，来换取在赛博空间中的“一刻春宵”。赛博空间是一种具象化的网络世界，人们通过类似虚拟现实的设备进入赛博空间，在其中自由翱翔，享受娱乐，追求刺激和快感。</p><p id="0bf0fcd7-1e8c-48b8-89e5-70d61c3b8616" class="">
+</p><p id="4b52371d-56d7-427c-b9d2-1da81601b4c6" class="">主角是一名黑客高手，有着在赛博空间中攻破企业级防火墙的实力。因为私吞了一些东西，他被前雇主惩罚，烧坏了脑袋，无法再进入网络世界。为了治好病，他四处寻访神医，但没有结果，最后流落东京港附近的贫民区为黑道做些下三滥的勾当：砍人，贩毒来维持营生。</p><p id="3c53af24-d66d-4952-9275-660d6ebd531c" class="">
+</p><p id="0f884e30-6529-4dfb-871a-60615e99574b" class="">正当其被朋友出卖，受黑道追杀之时，一名女杀手找上门，救了他的命。并告诉他：“一位老板能治好你的病，只要你答应为他工作，效忠于他。”</p><p id="2c7cf078-81e0-47ea-b990-85f9b3de68a2" class="">
+</p><p id="1b27476e-2ebd-40fd-bc44-505423afe3c2" class="">走投无路的主角自然接受了这份工作。在治好了病后，终于重新进入了令他魂牵梦萦的赛博空间，他惊讶的发现自己的老板竟是人工智能，这个神秘的雇主需要他盗取一份密码。在这里，他认识了一名特种部队军官，一名意识操控专家，加上之前的女杀手，他们都是亡命之徒，帮助着人类文明的敌人，厌世又迷茫，自我放逐又盼有回头路。之后的故事，便围绕着这名天才黑客和女杀手，以及其他团队成员一起盗取密码的故事展开。</p><p id="2ca22be2-5ab9-40b8-9350-ea18cf0b9d8a" class="">
+</p><p id="3e0c0e0d-5fd5-4462-bab7-053dfff39020" class="">这个故事毫无疑问是迷人的 ，即使拿到二十一世纪，依旧不算过时。</p><p id="33add29b-7f00-44ee-8017-f36e8d4aa411" class="">
+</p><p id="4e756b73-8f23-48b9-bdea-188e9b8a515f" class="">故事开头的东京港贫民区，是书中描写的最详实的现实世界景观，也是我最喜欢的段落之一。从文字中，你甚至能闻到“腐烂的死鱼与沉沦的穷人们有着同样一种气味”，能感受到所有人都明白“现实世界的败坏已成定局，只有网络和毒品是唯一值得追求的事”。城市中的霓虹暗示着所有愉快的消遣，挣扎在此的人们除了慢慢坠到地狱这条路外，没得选。</p><p id="28e4f9e8-d348-4ffb-8fbf-a1baa6df64c0" class="">
+</p><p id="2505eb92-4f88-45ac-b539-1404b74a30ed" class="">这样对未来社会极端腐朽的描绘，与网络科技的发达形成了鲜明的对比，这种特征以图像的形式呈现出来，也成就了赛博朋克的视觉风格。高对比度的霓虹配上东方文字，丛林般的摩天大楼配上混乱生长的城寨，为大公司工作的高级白领，配上没有选择的底层民众。这种断崖式的符号搭配，用一句话概括就是——高技术，低生活 。</p><p id="7902ac5c-6e00-4f1d-a9ad-6b08a08fd430" class="">
+</p><p id="d3dc93b0-a985-473e-9acb-76fb5c463d2d" class="">而这正是今时今日最令人担忧的——对技术的“恶”不做分辨，全盘接受，将导致全人类社会的共同败坏。《神经漫游者》的语境，深刻而直观的隐喻了这样的危险。</p><p id="5862620b-860c-4a86-8b93-2344ec385d06" class="">
+</p><h2 id="9ed24116-8f23-48be-a1c6-3f514133b8c0" class="">三番目-充满张力的内核</h2><p id="3154efd9-ef1f-4b66-ba9c-15fcde88d082" class="">《神经漫游者》不适合大多数人看。</p><p id="54e0b8f9-1ed7-434e-ab4f-67afa662b85a" class="">
+</p><p id="7d964471-36ca-461a-ae80-a7139b2597ff" class="">如果搜索这本书，你会发现网上对这本书中文译本翻译质量的评价不太好。我觉得这是情有可原的，这本书中有太多生造的概念，以及抽象迷幻的描写。如果不是对计算机 ，电影视效等多个专业领域特别了解，很难翻译好。</p><p id="1455a0c9-5e53-4af3-a672-e68aa3f33d75" class="">
+</p><p id="f374178f-4f71-4768-8f8a-7c1cb4a1e14d" class="">更关键的原因是，《神经漫游者》本就是需要读者用大量的自我想象去填充其留白的。比如这个描绘主人公进入赛博空间的段落：</p><blockquote id="4a0a9c70-bca3-4102-960e-f690597a5d31" class="">当主人公凯斯将皮肤电极的赛博空间操控台接入前额，进入网络（Matrix）之后，他“内在的眼睛”可以看见“一张透明的三维棋盘，一直伸到无穷远处。</blockquote><p id="0e4e2c90-0778-4619-95e6-0ee50b3d81b3" class="">
+</p><p id="7eaad5ef-c0d3-4881-a703-1359ee0bc291" class="">想必读者看到这样的描写，很难想象出“伸到无穷远处的三维棋盘”是什么样的场景。但如果你玩过摆在中古电玩店里的老式球面屏显像管街机，一定能脑补出这个三维棋盘。</p><p id="b6ccd79f-e292-4ecb-87a0-6ef02d48d33d" class="">
+</p><p id="6900cd0b-fc0f-4849-9859-edcf0d06d8ff" class="">除了这种需要读者自我想象的场景，《神经漫游者》中还大量使用虚构语境下的俗语。比如，用”Flatlined“（平线了）来代替”死亡“，对于书中的未来黑客来说，这是一个相当生动的比喻。但如果读者难以代入故事中虚构的语境，便很难get到什么是flatlined。</p><p id="319b0502-473b-4f2c-b447-21ba07d1bb7e" class="">
+</p><p id="e78f33d9-e181-465f-93e9-a2e00c05fc5a" class="">这是我不会推荐这本书给对”赛博朋克“无感的读者的原因，但同时也是我喜欢这本书的原因，这种虚构了故事语境，又有充分留白的写作风格，使《神经漫游者》描绘的世界充满张力。</p><p id="d38f8759-0e00-4f57-949b-5f9d800d133a" class="">
+</p><p id="d49bd796-d9ae-4351-81bc-9ecfeb623823" class="">这种张力不仅体现在用词和语境里，更体现在故事的精神内核里。</p><p id="ec06b2fd-bca1-44db-a516-2aca90f1fa99" class="">
+</p><p id="e862827f-6d2d-41c5-909d-17de7ba6f82c" class="">面对一个无可救药的坏时代，《神经漫游者》里的凯斯，最终没有沉沦，没有放弃人类。</p><p id="912442ce-f535-4f4f-86cb-106ba1a3d8f5" class="">
+</p><p id="d1d5b556-339c-4ed5-8501-5dd185d03b6e" class="">面对一个仿生人毫无希望的未来，《银翼杀手》里的戴克，最终没有助纣为虐，他选择了爱情。</p><p id="b97fed8d-3578-4bc1-97d2-ea369c95dac7" class="">
+</p><p id="b71a6394-0ec9-49d6-962b-4b8f16515856" class="">面对一个分崩离析的社会，《攻壳机动队》里的公安九课，没有成为政客的工具，坚持着正义。</p><p id="80db4a2d-b203-43a5-91fd-3ebe56aceb71" class="">
+</p><p id="ee6bac0f-3088-4d7f-9ec0-7524016bf915" class="">人类不会放弃希望！不会放弃勇气！不会放弃爱！这是所有赛博朋克故事，通过描绘一个科技失控的未来，真正想要展现的东西。</p><p id="001451a9-0982-40af-a989-fddff0c1d249" class="">
+</p><p id="18dc7784-743e-4fb4-9390-01853dac6c8a" class="">这是科幻，这是黄金时代的精神。</p><p id="8889e14c-6794-4392-8a76-ed90fda02aa4" class="">
+</p><h2 id="c5642ca5-fdf7-4d9f-9b54-5c84453fd0bb" class="">四-黄金时代的精神</h2><p id="7f48122b-bf7a-4d58-8ba1-e251e469bc94" class="">我一直认为，对赛博朋克，我们存在一些误解。</p><p id="e0bef2c4-48ec-4c79-803e-301af34b021d" class="">
+</p><p id="cc93c7ad-c3de-41dc-9bb4-3a0f79546e05" class="">因为赛博朋克作品对”高技术，低技术“这种未来社会的生动描写。好像很多人觉得这是一个灰暗到底的风格。</p><p id="41094edf-a181-4fec-98d0-d5290e7e0ab6" class="">
+</p><p id="c5f0bb7b-f212-44a9-b720-85f9876b361f" class="">但恰恰不是。</p><p id="c01809fc-c598-4ba9-ab68-20de5adf1f8f" class="">
+</p><p id="12703928-6638-43ad-b052-75c5cc2bde71" class="">成就一个赛博朋克作品的，永远不是一个黑暗到不可救药的未来社会，而是在其中挣扎的人，总有一些坚持的东西，从未停止反叛。</p><p id="9cf36c3b-9cde-4e7f-93e6-1ac58ebc3857" class="">
+</p><p id="a8ebda41-cb2c-4ec1-aef8-ce321de4a925" class="">而这种反叛精神便是朋克（punk）的精神，一种感性的张力，获得救赎的希望。</p><p id="2cea3a2a-53a9-4f1a-b003-92066acce6a5" class="">
+</p><p id="0d0aa2ba-9d14-4023-9c78-f9b8229f6d14" class="">而这个东西，与黄金时代科幻，描绘人类冲出宇宙，克服重重困难，探索更广阔世界的那种东西，是一致的，甚至在没能冲出宇宙，大环境的沉沦下，这种精神显得更加可贵，更让人有所感受。</p><p id="16f722c4-b6cd-4e0d-a349-e5dfbfb025e0" class="">
+</p><p id="296d1bf8-c2bf-45e8-ba16-efdca449cc4e" class="">这也是我为什么不推荐《三体》，它缺乏这个东西。《三体》讲了一个好科幻故事，但仅仅是个故事，”黑暗森林“体系隐喻了一个黑暗到无可救药的最终命运，并且许多读者愿意将其套在生活中去思考问题，这不是什么好事，一个伟大作品不会以一概全的遮蔽更重要的感受。对星际文明间关系的阐释，《安德的游戏》系列，从与”黑暗森林“类似的开篇故事，到《死者的代言人》，用了6本书，把文明间的互不理解，摩擦，毁灭，到新生，共存，完整而通透的做了描绘，充满张力。相比之下，《三体》在哲学问题上的浅显而缺乏张力的解释，让其难以被称为伟大作品。</p><p id="0ca44298-40e6-4e2b-ae73-f706f5e21923" class="">
+</p><p id="ba1eade4-af33-46c9-8e5c-476c74f1baa9" class="">而《神经漫游者》则是个自我实现并继承了黄金时代精神的现代神话。</p><p id="bc8c570c-670a-4748-9047-f631fc0ec9e0" class="">
+</p><p id="c0fc5f08-d328-440d-8f1a-af87872670c3" class="">我不撒谎了，我向所有人推荐《神经漫游者》。</p></div></article></body></html>

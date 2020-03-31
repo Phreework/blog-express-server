@@ -403,22 +403,69 @@ blockquote {
 	border-left: 3px solid rgb(55, 53, 47);
 }
 
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
 .bookmark-href {
 	font-size: 0.75em;
-	opacity: 0.5;
+	margin-top: 0.25em;
 }
 
 .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
-.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
 .pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
 
-.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
 
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
 
-.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
 
 .highlight-default {
 }
@@ -543,6 +590,16 @@ blockquote {
 .block-color-red_background {
 	background: rgb(251,228,228);
 }
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
 
 .checkbox {
 	display: inline-flex;
@@ -562,7 +619,18 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="e2133dea-b459-46ff-8c04-7c4de8efef01" class="page sans"><header><img class="page-cover-image" src="Untitled%205/b7735c520a2cca1a542e45b5c9292f60.jpg" style="object-position:center 50%"/><h1 class="page-title">《遗落南境》</h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th>Author</th><td><span class="selected-value">杰夫·范德米尔</span></td></tr><tr class="property-row property-row-select"><th>Score /5</th><td><span class="selected-value">⭐️⭐️⭐️⭐️</span></td></tr><tr class="property-row property-row-text"><th>Summary</th><td>新怪谈的恐怖之处在于，一切人物，活动，都是以理性主义的模式为前提的，一切诡异的东西都被科学的描述出来了，但你就是TM理解不了发生了什么。</td></tr><tr class="property-row property-row-multi_select"><th>Type</th><td><span class="selected-value">新怪谈</span></td></tr><tr class="property-row property-row-text"><th>主题</th><td>非常想安利的不是很有名的一本书</td></tr><tr class="property-row property-row-number"><th>挑战天数</th><td>7</td></tr></tbody></table></header><div class="page-body"><h1 id="5e94f554-14c9-420e-b3b4-529e211221fc" class="">Day07-非常想安利的不是很有名的一本书</h1><p id="af01f59a-d360-474a-8f1c-d252bc92c87a" class="">《遗落南境》杰夫·范德米尔  #30天推书挑战#</p><hr id="08e726e4-b773-4faa-8284-65331b98dfb8"/><h2 id="fbc342dd-920c-4def-8949-c57cd4c81767" class="">从SCP基金会说起</h2><p id="8f1d6b58-ea83-4c67-a72e-9e247aae26a3" class="">我本来没想安利《遗落南境》的，没有第一时间想到它。</p><p id="1f07d9ea-a5eb-41b8-8173-3f9e105c1019" class="">对于不是很有名却非常想安利的书，我首先想到的是SCP基金会故事集。SCP是新怪谈运动最大的成果，一个由来自世界各地的作者共同创作，共同管理，有着公共世界观的科幻恐怖故事集。SCP现已有数千个风格迥异的故事，成为了文学亚文化中，仅次于克苏鲁故事体系的存在。</p><p id="b7aa0fa2-2fef-49fa-8c20-60188bac0dc9" class="">但SCP作为一个开源写作项目，终究不是一本书。</p><p id="7db2d7a6-3cf8-4296-a836-c657bcf6a1ba" class="">这时我想到了《遗落南境》，对SCP影响最强烈，却也不怎么为人知晓的，新怪谈运动最早的作品之一。</p><p id="c2ba63e2-0d6c-4b85-851e-f0d2515f5287" class="">
-</p><h2 id="a5f6b96d-2bec-4a87-88cb-e4bf852cf8f4" class="">新怪谈与克苏鲁</h2><p id="7ec36f03-e4f5-475d-86f6-1799f82678b7" class="">要聊新怪谈，必须得先提提克苏鲁，因为新怪谈是对克苏鲁范式的一次颠覆。</p><p id="6dd479a2-ccc1-4721-a0ba-a10f3a86ddd4" class="">20世纪中期开始，由洛夫克拉夫特创造的克苏鲁神话，由共同创作的先进理念而发展，并最终借由对电影，游戏中怪物形象和世界观设定的强大影响力壮大，如今已是最受人瞩目的亚文化潮流。</p><p id="c5c487b8-e590-4c0d-8ec2-59c459d73391" class="">但对于很多作家 ，克苏鲁神话“不可名状”的写作手法，早在90年代末期就已经走到了尽头。</p><p id="5c9f0c95-23ec-42c1-b628-6620785c821e" class="">变革必须出现。</p><p id="4e367951-5cd6-40e6-b51a-1647c3069252" class="">新怪谈运动应运而生。20世纪末，一批恐怖小说作品开始思考如何继承并变革克式恐怖，写出一些创新的东西，《遗落南境》便是其中最成功的作品。
-</p><h2 id="2199c5ef-ac39-4a81-84a9-353a99d93d7f" class="">遗落的南境</h2><p id="955b2efe-41fc-473a-874e-46882945ec91" class="">能读到这里的读者肯定已经不耐烦了，“咋这么多废话，你快给我讲讲这书到底写了个怎样的故事！”行，那《遗落南境》到底写了一个什么风格的故事呢？故事是这样的：</p><p id="ef447b70-f9b0-4e76-b480-6ab8ee6d1d17" class="">X区域是一处被遗弃的海岸，是政府口中遭污染废弃之地，也是一片无人区。所有未经批准而准备越过边界的人，倘若不是被边界“吸走”杀掉就是被政府驻守在此的军队以各种方式干掉。有一处专门研究X区域的机构——南境局。南境局派出的勘探队，要么全军覆没，要么回来后集体患癌而死……整个南境局被这种恐怖而诡异的气氛缠绕着，而关于X区域的一切只是猜测，未有定论。而书中的故事便是围绕着南境局对X区域的一次科考，细致入微的讲述科学家们对X区域的探索活动。</p><p id="0263f384-7184-44f4-87be-0981b468da1a" class="">如果你看过克苏鲁式的小说，会意识到这确实与克苏鲁范式很不一样。</p><p id="9dbd7de2-731a-4b66-95c5-c007d54cfd0d" class="">没错，克苏鲁小说中不会出现这么多的科学元素，不会对人物的心理毫无描写。而这正是《遗落南境》的创新之处。这本恐怖风格科幻小说，把所有的科学元素描述的非常细致，并不是克苏鲁小说中，完全无法理解的那种不可名状，也没有人物的突然崩溃。</p><p id="a4f21625-f53e-4b1f-aad6-e3576868d13c" class="">新怪谈的恐怖之处在于，一切人物，活动，都是以理性主义的模式为前提的，一切诡异的东西都被科学的描述出来了，但你就是TM理解不了发生了什么，更骇人的是，故事中的主角们一直保持着冷静和热情，他们对危险不自知，而毫无崩溃的迹象。</p><p id="566ad049-0a66-44e5-96f0-6a523f16ffd8" class="">借用最近的新怪谈风格游戏《Control》中主角的一句话来结尾：“我感觉我很冷静，掌控着局势...”</p><p id="5d93c49f-f201-4377-b4b8-4e0b0307c04f" class="">
+</style></head><body><article id="e2133dea-b459-46ff-8c04-7c4de8efef01" class="page sans"><header><img class="page-cover-image" src="Untitled%205/b7735c520a2cca1a542e45b5c9292f60.jpg" style="object-position:center 50%"/><h1 class="page-title">《遗落南境》</h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Author</th><td><span class="selected-value select-value-color-yellow">杰夫·范德米尔</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Score /5</th><td><span class="selected-value select-value-color-default">⭐️⭐️⭐️⭐️</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Summary</th><td>新怪谈的恐怖之处在于，一切人物，活动，都是以理性主义的模式为前提的，一切诡异的东西都被科学的描述出来了，但你就是TM理解不了发生了什么。</td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Type</th><td><span class="selected-value select-value-color-yellow">新怪谈</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>主题</th><td>非常想安利的不是很有名的一本书</td></tr><tr class="property-row property-row-number"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>挑战天数</th><td>7</td></tr></tbody></table></header><div class="page-body"><h1 id="5e94f554-14c9-420e-b3b4-529e211221fc" class="">Day07-非常想安利的不是很有名的一本书</h1><p id="af01f59a-d360-474a-8f1c-d252bc92c87a" class="">《遗落南境》杰夫·范德米尔  #30天推书挑战#</p><hr id="08e726e4-b773-4faa-8284-65331b98dfb8"/><h2 id="fbc342dd-920c-4def-8949-c57cd4c81767" class="">从SCP基金会说起</h2><p id="8f1d6b58-ea83-4c67-a72e-9e247aae26a3" class="">我本来没想安利《遗落南境》的，没有第一时间想到它。</p><p id="512b5306-c61f-45d6-ba60-2fd2669e2630" class="">
+</p><p id="1f07d9ea-a5eb-41b8-8173-3f9e105c1019" class="">对于不是很有名却非常想安利的书，我首先想到的是SCP基金会故事集。SCP是新怪谈运动最大的成果，一个由来自世界各地的作者共同创作，共同管理，有着公共世界观的科幻恐怖故事集。SCP现已有数千个风格迥异的故事，成为了文学亚文化中，仅次于克苏鲁故事体系的存在。</p><p id="9beb6c8c-354f-44da-b3ad-8a4f453d6769" class="">
+</p><p id="b7aa0fa2-2fef-49fa-8c20-60188bac0dc9" class="">但SCP作为一个开源写作项目，终究不是一本书。</p><p id="2217befb-b88d-4805-b01e-b31a0ca2ada8" class="">
+</p><p id="7db2d7a6-3cf8-4296-a836-c657bcf6a1ba" class="">这时我想到了《遗落南境》，对SCP影响最强烈，却也不怎么为人知晓的，新怪谈运动最早的作品之一。</p><p id="c2ba63e2-0d6c-4b85-851e-f0d2515f5287" class="">
+</p><h2 id="a5f6b96d-2bec-4a87-88cb-e4bf852cf8f4" class="">新怪谈与克苏鲁</h2><p id="7ec36f03-e4f5-475d-86f6-1799f82678b7" class="">要聊新怪谈，必须得先提提克苏鲁，因为新怪谈是对克苏鲁范式的一次颠覆。</p><p id="f5cf0b00-63cb-4261-8c64-83c43bec68e0" class="">
+</p><p id="6dd479a2-ccc1-4721-a0ba-a10f3a86ddd4" class="">20世纪中期开始，由洛夫克拉夫特创造的克苏鲁神话，由共同创作的先进理念而发展，并最终借由对电影，游戏中怪物形象和世界观设定的强大影响力壮大，如今已是最受人瞩目的亚文化潮流。</p><p id="0de69da8-d96b-4961-8cda-2cbd6c510c1d" class="">
+</p><p id="c5c487b8-e590-4c0d-8ec2-59c459d73391" class="">但对于很多作家 ，克苏鲁神话“不可名状”的写作手法，早在90年代末期就已经走到了尽头。</p><p id="e4c3aab5-99e2-4c7a-9423-9e2d710b8fb5" class="">
+</p><p id="5c9f0c95-23ec-42c1-b628-6620785c821e" class="">变革必须出现。</p><p id="c8ecc283-c3bf-45ed-bb2b-ab9a850d51c3" class="">
+</p><p id="4e367951-5cd6-40e6-b51a-1647c3069252" class="">新怪谈运动应运而生。20世纪末，一批恐怖小说作品开始思考如何继承并变革克式恐怖，写出一些创新的东西，《遗落南境》便是其中最成功的作品。
+</p><h2 id="2199c5ef-ac39-4a81-84a9-353a99d93d7f" class="">遗落的南境</h2><p id="955b2efe-41fc-473a-874e-46882945ec91" class="">能读到这里的读者肯定已经不耐烦了，“咋这么多废话，你快给我讲讲这书到底写了个怎样的故事！”行，那《遗落南境》到底写了一个什么风格的故事呢？故事是这样的：</p><p id="ef447b70-f9b0-4e76-b480-6ab8ee6d1d17" class="">X区域是一处被遗弃的海岸，是政府口中遭污染废弃之地，也是一片无人区。所有未经批准而准备越过边界的人，倘若不是被边界“吸走”杀掉就是被政府驻守在此的军队以各种方式干掉。有一处专门研究X区域的机构——南境局。南境局派出的勘探队，要么全军覆没，要么回来后集体患癌而死……整个南境局被这种恐怖而诡异的气氛缠绕着，而关于X区域的一切只是猜测，未有定论。而书中的故事便是围绕着南境局对X区域的一次科考，细致入微的讲述科学家们对X区域的探索活动。</p><p id="4b9cc2bf-9bd7-49d6-91db-50a57b8f8fb7" class="">
+</p><p id="0263f384-7184-44f4-87be-0981b468da1a" class="">如果你看过克苏鲁式的小说，会意识到这确实与克苏鲁范式很不一样。</p><p id="8de9d2e2-84a7-488c-b672-f92916b7fc83" class="">
+</p><p id="9dbd7de2-731a-4b66-95c5-c007d54cfd0d" class="">没错，克苏鲁小说中不会出现这么多的科学元素，不会对人物的心理毫无描写。而这正是《遗落南境》的创新之处。这本恐怖风格科幻小说，把所有的科学元素描述的非常细致，并不是克苏鲁小说中，完全无法理解的那种不可名状，也没有人物的突然崩溃。</p><p id="98b72c07-3d47-4be3-9ed0-d302b02ad295" class="">
+</p><p id="a4f21625-f53e-4b1f-aad6-e3576868d13c" class="">新怪谈的恐怖之处在于，一切人物，活动，都是以理性主义的模式为前提的，一切诡异的东西都被科学的描述出来了，但你就是TM理解不了发生了什么，更骇人的是，故事中的主角们一直保持着冷静和热情，他们对危险不自知，而毫无崩溃的迹象。</p><p id="08d22f8a-1cd5-430a-bbab-a019e376d358" class="">
+</p><p id="566ad049-0a66-44e5-96f0-6a523f16ffd8" class="">借用最近的新怪谈风格游戏《Control》中主角的一句话来结尾：“我感觉我很冷静，掌控着局势...”</p><p id="5d93c49f-f201-4377-b4b8-4e0b0307c04f" class="">
 </p></div></article></body></html>

@@ -1,0 +1,645 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>《银河英雄传说》</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e6332fe5-70de-47a9-97ef-f4a0a96be902" class="page sans"><header><img class="page-cover-image" src="Untitled%208/d3a70d2b3fa5ff413c589541405ffa5d.jpg" style="object-position:center 50%"/><h1 class="page-title">《银河英雄传说》</h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Author</th><td><span class="selected-value select-value-color-gray">田中芳树</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Score /5</th><td><span class="selected-value select-value-color-default">⭐️⭐️⭐️⭐️⭐️</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Summary</th><td>《银河英雄传说》（以下简称《银英》）是被称为“中国金庸，日本田中”的田中芳树先生所著历史架空小说，与其他历史架空小说不同的是，《银英》设定在遥远的未来，人类已经殖民了整个银河系，成为了星际文明，因此 ，《银英》同时也属于太空歌剧题材。</td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Type</th><td><span class="selected-value select-value-color-blue">太空歌剧</span><span class="selected-value select-value-color-blue">架空历史</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>主题</th><td>很喜欢主角人物性格的一本书</td></tr><tr class="property-row property-row-number"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>挑战天数</th><td>10</td></tr></tbody></table></header><div class="page-body"><h1 id="00aeb694-742b-4636-9a10-548518cfa512" class="">很喜欢主角人物性格的一本书</h1><p id="89653f79-6dea-41c7-a3ee-01051e7c0729" class="">《银河英雄传说》田中芳树  #30天推书挑战#</p><hr id="b9c675a6-dfa2-4b67-9467-45fdcb08651e"/><p id="1bec3892-3d38-4029-9ac7-62b58ac3ef79" class="">
+</p><h2 id="d3a277c0-d067-4b99-8d84-7b2d91430786" class="">日本的金庸</h2><p id="3b19850c-536b-426a-800a-f1bd41f91244" class="">《银河英雄传说》（以下简称《银英》）是被称为“中国金庸，日本田中”的田中芳树先生所著历史架空小说，与其他历史架空小说不同的是，《银英》设定在遥远的未来，人类已经殖民了整个银河系，成为了星际文明，因此 ，《银英》同时也属于太空歌剧题材。</p><p id="9f6875a5-77af-4a29-a3e8-11362dc416f6" class="">
+</p><p id="56c7db52-c4a3-4cbf-9ad1-63ccda859e57" class="">田中芳树和金庸确实有很多相似之处，两人都是国民级作家，都创作了大量脍炙人口的作品，并且都相当精通中国古代历史。金庸的小说有详实的历史家国背景，田中也创作了大量以花木兰，兰陵王等中国古代人物为原型的小说。</p><p id="4447e83d-06d6-45c3-ae96-5cd4829ca157" class="">
+</p><p id="46ce8bab-1fad-4ce7-93da-1343700591fa" class="">然而在写作的重心上，田中与金庸也有鲜明可见的不同之处。金庸先生着力刻画的是人与人之间的感情世界，即便故事的基调是国仇家恨，江湖恩怨，但金庸更想向读者传达的是人物的特定心境。虽然田中在人物刻画上也相当细腻，但更多是想借人物的口，去诉说全人类的共同境遇。</p><p id="21b45cc8-8f6b-49fd-9c4c-1aa8ec2a5379" class="">
+</p><p id="f511249a-6c90-4cf2-91f2-8b9745db5ba6" class="">举例而言，田中的小说中，总是不乏“xx历xxxx年，发生了xxxxxxx，史称xxxx”这样严肃的历史叙述句式。并会有“那一年某人xx岁，距发生xx事件还有”这样旁白化的叙事手法。</p><p id="e73a214e-893e-43c5-bff4-73d9f2f575bf" class="">
+</p><p id="05425073-3df9-4c3c-8d3b-d4fa71f25d4c" class="">那么，《银英》讲述了一个怎样的故事呢？</p><p id="84baf558-d671-4116-a6f5-bf82963047c0" class="">
+</p><h2 id="fc452050-ab50-4faf-80ee-d4baeb1f9f39" class="">银英的故事</h2><p id="deecb9c2-2fd9-40c3-a5eb-dbdfa8c6ba3f" class="">作为一本长达300余万字的小说，银河英雄传说的故事没办法简单的被概括，但我还是先放出一个简单的梗概：</p><p id="fa2b7021-3f17-43e3-82bc-7914719b2513" class="">银河宇宙中天下三分，君主专政却最为强盛的帝国，民主自由但内藏腐朽的同盟，中立经商却暗中挑拨的费沙。帝国内崛起的天才战略家莱因哈特打破平衡，率领两万艘舰队踏上征途，遇上了他毕生的夙敌——同盟军的杨威利，并展开了一场场智谋激斗，整个星域被鲜血所染遍。故事跟随莱因哈特与杨威利两位不世出的天才的一生，展开了一场宏伟悲壮的银河三国志。</p><p id="52eebbf0-c4dd-42e5-95df-9285aea2b7bc" class="">
+</p><h2 id="856e3ed0-7186-495a-b409-657f1b2ace4d" class="">两位主角，双子行星</h2><p id="01af8d21-4f60-4471-be58-ea071b52b5ef" class="">莱因哈特有着典型的中世纪贵族特质，严以律己，嫉恶如仇，富有野心。他既擅长政治，又精通兵法。帝国历487年，年仅20岁的莱因哈特以两万兵力击溃同盟军四万兵力，成为史上最年轻的帝国元帅。并在皇帝驾崩后的帝国内斗中掌权，在经历了友人离世，背叛和亲人离去后，最终登基为皇，开创了新的盛世。</p><p id="cf421c3b-a160-4f22-897b-24b24cccbb9e" class="">
+</p><p id="73aacb3b-ac8b-443e-a16d-86cb4aebac52" class="">杨威利原本立志成为历史学家，对于权力、政治及军队本身感到厌恶，却阴错阳差被推上了历史的潮流，成了同盟的英雄。在军事谋略上，杨威利甚至更胜莱因哈特一筹，被称为“奇迹的杨”，“不败的魔术师”，具有安定的人格（佛系）魅力与包容力（不计较），获得了下属一致的信赖与敬爱。</p><p id="58081ad4-8622-4c39-a3b4-7dbe737aa68d" class="">
+</p><p id="d1e2bd1e-a54c-4f36-b525-c7eebb3e1f13" class="">这两个人物我都相当喜欢。看了这么多科幻小说，能够记下来的人物不多。大概因为西方科幻小说对人物的刻画偏向一种无序的复杂。虽说同样震撼，但难以留下鲜明印象。而田中作为东方作家，本就能写出更具有东方文化特质的细腻情感，而其对人物的着墨，又呈现出神话思维的特质，既通过详实的故事丰富了人物的复杂性，又通过历史写作的笔法，营造出了一看就能读懂的命运必然性。</p><p id="d2fa5549-4c7d-41c0-9140-249c5d577fc5" class="">
+</p><h2 id="406ec3fe-68b9-4a37-91da-2aa6589ef9e7" class="">莱因哈特——不完美的人，完美的英雄</h2><p id="216c3bdc-9912-4f97-95ed-802525cea786" class="">莱因哈特大概是文学史上最成功的科幻神话人物。他年轻时的经历与养成的性格，为日后所有的故事种下了因果。</p><p id="ac5b0400-017c-4c0d-b86a-bacb569be01e" class="">
+</p><p id="79fd6956-3fe9-44e7-810a-4e641fc87d79" class="">虽说横扫宇宙，除了宿命的对手杨之外无人能敌，却也没能将善良的本质贯彻到底。曾为了获得胜利，对能够拯救的一个星球撒手不管，导致了一场大屠杀，因此最重视的姐姐离他而去，唯一信任的好友齐格飞也与其发生争执，最终又为保护莱因哈特而身亡，成为了莱因哈特悔恨一生的悲剧。</p><p id="968df69f-27f3-40d7-b4dd-8cdb1d918f41" class="">
+</p><p id="1211cec1-a4ed-475b-8839-ac95cda72e07" class="">宿命的对手，至亲的离去，友情的破碎，下属的背叛，莱因哈特一生所有的心结，悔恨，都是其作为君临宇宙的王者，牺牲了人性中重要部分后导致的，无法逃避的命运。</p><p id="204a0463-4275-4176-bf53-2ce09cf93488" class="">
+</p><p id="cc05e9b8-ef0f-4981-8467-fdef651196ce" class="">为人王者，担负天下需要付出的代价，以及对王者个人来说必然的悲剧性，在莱因哈特这个人物上展现的淋漓尽致，令人叹服作者对故事因果架构的掌控能力。</p><p id="8a773c30-7c97-46f8-b2a3-4cada0c23072" class="">
+</p><h2 id="705c9aee-c285-435f-870f-8bda04e247e5" class="">杨威利——不完美的英雄，完美的人</h2><p id="95bb71f5-2b31-4c1a-8b12-557cd22d9f61" class="">杨威利不是模板式的完美主角。他曾被学长说“自脖子以下都是多余的”，射击表现平平，腕力和反射神经的水准只能算差强人意，以战斗员而言，可谓毫无价值。但作为一名指挥官，杨威利非凡的用兵能力使其成为同时代下唯一比肩莱因哈特的传奇将领。</p><p id="930be4a4-bb69-4dd6-9ac4-0fb98d673f9f" class="">
+</p><p id="0201f937-246f-4854-bc2b-39dee0d1ef26" class="">与莱因哈特为了目标横扫一切的经历相比，杨威利显得并不那么有行动力，用今天的话说，很佛系。他向往自由的生活，最爱喝着参了白兰地的红茶，在静谧的午后清闲的看书。本想着尽早结束服役，过上退休生活。却因为在组织逃亡中展现出的领导能力意外晋升，并在同盟败退的劣势下重创了当时锋芒毕露的莱因哈特。之后杨又以极小的代价甚至兵不血刃的化解了多次危机，成为了扬名宇宙的名将，被冠以“魔术师”的称号。</p><p id="e793a744-1b20-4df6-b53e-b532636c47e2" class="">
+</p><p id="6b6fa5e4-4cb5-46c9-a92a-f832261f8de4" class="">杨威利对待下属和蔼可亲，做事低调，重视自由。其爽朗而真诚的性格，甚至令帝国的间谍，名将折服，加入他的队伍。他信奉民主，所以深知同盟的政治家的腐朽，即便在人民中威望极高，却不愿搅政治这趟混水。如果他愿意，本有机会在同盟内乱期间掌控政局，成为像莱因哈特一样的独裁者。但杨毕竟是作为莱因哈特的对立面存在的角色，权力本身对于杨来说“太麻烦了”，杨愿意捍卫自由，但却也有权选择自己的生活方式，而他的愿望就只是，早点退休，能够每天喝喝小酒看看书罢了。</p><p id="11f93455-50f2-417d-ab3d-0e36e1e77e81" class="">
+</p><p id="2cb62702-749b-4e36-b1ca-98bff6591b8f" class="">类似莱因哈特个人悲剧的命运色彩，杨威利也没能顺利退休。最终被来自地球的极端宗教组织刺杀，死在了去与莱因哈特这位惺惺相惜的老对手会面的路上。</p><p id="c59bf70c-a5a0-4cb5-9697-e598bbbe6add" class="">
+</p><p id="05e58786-f55c-49e6-847b-55b740626347" class="">杨威利的一生是相当耐人寻味的，他捍卫的民主政体，始终被政治家和资本家操控着，人民从未真正掌握自己的国家，杨自己，也一直沦为政治家们的工具，身居高位的政客们，只是因为害怕帝国的莱因哈特，才没有动手除掉他。对这种局面，杨自己也是清楚的。那么为什么不由自己推翻腐朽的政府，给人民带来更好的未来呢？从性格和品质来看，杨是一个完美的人，但对于权力功绩的单薄，使其终究无法成为改变世界的英雄，即便被称为“不败的魔术师”，他能左右的，也只有战局罢了。</p><p id="499ce3e9-0e32-426f-a951-727fc759fad5" class="">
+</p><p id="38bc2d68-5b29-485d-ac78-483534bb1cad" class="">但这是不是代表杨就不如莱因哈特完美呢？倒也不是。杨威利信仰的民主，是具有张力的，即便当下的政坛腐朽，但政治体制和舆论环境都会慢慢改变。法律会逐步完善，记者会不断的曝光腐败，一个杨威利倒下了，还会有千万个思想自由的人，继续捍卫这个国家已有的民主成果。正如杨不会因为自己掌握军权就篡夺国家来谋求改变，杨也相信自己会有后继者，用正确的方法引领社会的进步。而反观莱因哈特，虽说以自己的品格，能力，开辟了新的盛世，但谁能保证后继者不会是一位暴君 ，再次置人民于水深火热之中呢？不过好在，莱因哈特也在后期对国家做了君主立宪制的改革，给帝国留下了人民当家作主的可能。</p><p id="bf6b31e1-17d2-403a-a7c4-785226399c38" class="">
+</p><h2 id="c31100db-73b3-4ef8-8580-5b69bb645f4f" class="">银河英雄传说</h2><p id="0e9ff7dc-53a6-4a78-b8e9-d305aad486d9" class="">在上文中，为了切合推书的文题，主要介绍了这两位银英中的主角。而其实，在300余万字的《银河英雄传说》中，富有深度，故事精彩的角色数不胜数。书中对于宇宙战争和未来政治的畅想相当精彩，既是高水平的太空歌剧，亦是难以超越的架空历史作品。</p><p id="6318b854-74b2-4eaf-9b9a-552b32884192" class="">
+</p><p id="061dc283-f12c-4c0e-8b6f-b6c3a4eea815" class="">对于没时间和精力阅读的人来说，《银英》亦有非常棒的动画化作品。1988年制作的162集动画《银河英雄传说》对小说相当还原，是科幻小说动画化的经典之作。</p><p id="00a905bc-8b39-4d3f-918a-c44caace11ab" class="">
+</p><p id="9ff18894-3162-4760-a0ae-d30e91554138" class="">而2018年，由现在顶级制作水准的Production.I.G动画化的新TV动画《银河英雄传说 全新命题》也已播出了两季24集，虽然为了现在动画业界的制作周期，做了一些删改，人物过于美型化也遭到了一些吐槽，但总体来说也是蛮好看的，（2018年制作的星舰对轰当然比1988年好看呀！）未来每年也至少有一季动画更新，感兴趣的话，不妨从这部最新的动画入坑。</p><p id="3960da14-69bc-42eb-a3e3-fa84edc293b6" class="">
+</p><p id="ab622470-135f-4669-807a-70dd1a5c1264" class="">那么，这本《银河英雄传说》推荐给你。</p></div></article></body></html>

@@ -403,22 +403,69 @@ blockquote {
 	border-left: 3px solid rgb(55, 53, 47);
 }
 
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
 .bookmark-href {
 	font-size: 0.75em;
-	opacity: 0.5;
+	margin-top: 0.25em;
 }
 
 .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
-.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
 .pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
 
-.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
 
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
 
-.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
 
 .highlight-default {
 }
@@ -543,6 +590,16 @@ blockquote {
 .block-color-red_background {
 	background: rgb(251,228,228);
 }
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
 
 .checkbox {
 	display: inline-flex;
@@ -562,14 +619,45 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="3c055073-9d04-4dbf-a442-78433a449a20" class="page sans"><header><img class="page-cover-image" src="Untitled%206/1163c464ba61dd0f86daae5392e556a3.jpg" style="object-position:center 50%"/><h1 class="page-title">《舞舞舞》</h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th>Author</th><td><span class="selected-value">村上春树</span></td></tr><tr class="property-row property-row-url"><th>Link</th><td></td></tr><tr class="property-row property-row-select"><th>Score /5</th><td><span class="selected-value">⭐️⭐️⭐️⭐️⭐️</span></td></tr><tr class="property-row property-row-text"><th>Summary</th><td></td></tr><tr class="property-row property-row-multi_select"><th>Type</th><td><span class="selected-value">后现代主义</span></td></tr><tr class="property-row property-row-text"><th>主题</th><td>最喜欢的长篇作品</td></tr><tr class="property-row property-row-number"><th>挑战天数</th><td>8</td></tr></tbody></table></header><div class="page-body"><p id="3f3bc8ec-1e0e-46b1-b1d4-99de9258d487" class="">#30天推书挑战#</p><p id="97b1513c-e2dc-47ca-8f75-b5b8b081f7dd" class="">Day08-最喜欢的长篇作品</p><p id="ebc6c285-4b86-4c17-80f7-9487090d1a34" class="">《舞！舞！舞！》村上春树</p><p id="80b04b2b-f142-4798-9988-bbdad832e5b2" class="">
-</p><p id="2c8932f3-b0d0-415b-af09-c8484097ab1c" class="">其一-为何，村上？</p><p id="0a3f5da9-bcbb-4cfc-aa75-d0951b4a53b1" class="">村上春树是在全世界范围内都算高人气的畅销作家。</p><p id="b1288919-7411-475f-bc99-a41214d82ed7" class="">有趣的是，村上春树的作品元素单拎出来看，并没有能够支撑起畅销书的元素。</p><p id="ef55b8a2-da27-4410-a377-f552e9aaf47b" class="">社会边缘人，超现实故事，大段无关文字，古怪的翻译腔。</p><p id="d5dfb05b-10ff-472d-a9bb-b0c8ef86346a" class="">这稍微有点反常。</p><p id="3602057c-6403-4b32-9a4c-62394477a24e" class="">
-</p><p id="b921107c-1492-4576-90b7-20e97d33cfb1" class="">其二-非《挪威的森林》？</p><p id="605751fc-6249-4d90-be87-5bde78949791" class="">村上春树的长篇作品里，最最出名的当然非《挪威的森林》莫属。</p><p id="ed8830ed-f81a-45fd-aada-ffd2703f6cb3" class="">而我却不知为何，单单钟情于 《舞舞舞》。</p><p id="a2c8a869-4ef0-4b8f-99f8-3753131c0e82" class="">
-</p><p id="98df1bfd-4851-45fc-a97c-f1be5fbdfb29" class="">
-</p><p id="cc3034d7-7cb7-4c5a-a640-8a7498dd5a30" class="">其三-解构《舞！x3》</p><p id="ba2bdd21-211b-441f-a4e3-36f05466a976" class="">《舞舞舞》这本书很有意思的一点是，它穿插式的讲了许多个，一句话就能讲明白的故事，这包括：<div class="indented"><p id="28a1539c-bcf5-463b-af42-4943af7e4f2a" class="">-与酒店服务生的简单爱情</p><p id="6397b6fc-10de-470c-932e-0d28c456c978" class="">-漫无目的寻找梦中情人</p><p id="5ced29f9-dfac-43fc-9314-23199fc71ea8" class="">-作为一线明星好友的交心对象，一起大保健</p><p id="a80d911b-79f0-487e-a659-50375b13b2bd" class="">-大叔和青春期少女的心跳旅行见闻</p><p id="d15fc0ed-9161-4532-8539-8271038eb5c0" class="">-针对高级女郎的连环杀人案</p><p id="79736d83-697c-485c-ab31-6cf9684d6b48" class="">-神神叨叨，海豚宾馆的都市传说</p></div></p><p id="6f8c06ec-8664-48b2-9f51-7ecac5784b2e" class="">如果说《国境以南，太阳以西》是满溢其气味让人望而却步的伏特加，《挪威的森林》是味淡却渐感凉意的清酒，那《舞舞舞》大概是西海岸阳光下，一杯摸不着头脑的鸡尾酒，你以为这是饮料，一饮而下——</p><p id="a5a223c8-436e-428f-8910-4be4ff45aa42" class="">却不知，脚下沙滩是否为实在，眼中霓虹是否为虚幻。</p><p id="d8150ae4-c4bf-4d99-af2b-80e440ccd663" class="">在我看来，这像极了赛博朋克描写下的东方，又像极了90年代J-POP歌颂的西方。</p><p id="918fcda7-df39-46d9-96a2-d648bcd65d6d" class="">西海岸没那么美好 ，歌舞伎町也没那么糟。但文化出口再进口，却塑造出了现实中不存在的美妙景观。</p><p id="3f55957f-ce0a-466a-b312-a9564fd7610d" class="">
-</p><p id="13bcad12-03e7-4ec7-bdba-deca805799cf" class="">其四-《舞舞舞》吸引人之处</p><figure id="a2ba9b30-8353-4945-96d3-900a44b9c14b" class="image"><a href="Untitled%206/TIM20200313222445.jpg"><img style="width:526px" src="Untitled%206/TIM20200313222445.jpg"/></a></figure><p id="f64d46c9-b2c7-4dcc-bb16-8b2c818eff15" class="">按村上的作品年表来看，在《舞舞舞》之前的作品，写作重心以及主旨是这样延伸的：</p><p id="5adfba7e-f6a1-4326-8699-578755a51ac4" class="">《且听风吟》——阅读，恋爱，友情，崩溃</p><p id="8c3205f2-2670-48ab-8e95-a48e03d9c143" class="">告别青春。</p><p id="91abe7d9-de1c-4fc8-ba8f-e5310e840d26" class="">《1973的弹子球》——酒吧，弹子球机，短暂关系</p><p id="656e2183-7e18-4fa6-bb1c-9d1ff8fa40bd" class="">理解孤独。</p><p id="61a210ea-76f1-418a-8427-57ee79e13a4b" class="">《寻羊冒险记》——脱离日常，追逐真相，面对未知</p><p id="b24287e0-9ecb-4416-a71d-819aaec1fad0" class="">复归勇气。</p><p id="959a3a7d-f3d8-4d18-b978-53a361cc77e5" class="">《世界尽头与冷酷仙境》——阴影，阴谋，觉醒，逃离</p><p id="da13b717-cf97-4715-b643-0cf6120edc42" class="">寻找意义。</p><p id="6091282a-f392-47ed-b277-bc07cc045a2b" class="">《挪威的森林》——摇摆，恐惧，内耗，定局</p><p id="47801b78-4f7e-42d3-bb33-d0956d8b66c6" class="">学会接受。</p><p id="0166e5c7-ea4f-4d6c-95e5-60ad7ffeb125" class="">
-</p><p id="11103489-e2f2-4be9-a9bf-cc6d807fa948" class="">《舞舞舞》呢？</p><p id="07b22f09-35ee-4411-87e4-95398111f666" class="">包含一个“离去-寻梦-接受”的爱情故事。</p><p id="474576a5-39b9-4a01-b37f-a7b5241abcc4" class="">包含 一个“追逐真相”的悬疑故事。</p><p id="b207cf0d-954d-4197-b551-a94fcc273fe8" class="">包含一个“短暂关系”的旅行故事。</p><p id="8dd59448-a8cc-4b9c-b877-92b254cd9306" class="">包含一个“交心朋友”的悲剧故事。</p><p id="f83961c9-3917-4a7f-a0dc-1f10ec7910da" class="">包含一个“克服内心”的恐怖故事。</p><p id="ac964c3a-507b-407b-996a-cfa3cd10917f" class="">
-</p><p id="5edfc154-4e0f-4cb8-86d2-155832d67a0e" class="">我想说什么呢？不是说村上对着自己作品的梗概生搬硬套，在玩语言游戏。</p><p id="3de425cb-7ab3-48b4-bdd6-fd7be7aab6ea" class="">只是自然而然的，一个作家把自己想写的东西都写出来，并且这一次不再顾及故事如何，终于心满意足的写完了。</p><p id="914cf5a6-746d-4e0d-b77f-7f6e52280e58" class="">《舞舞舞》由于剧情上，时间，地点，人物的结构太过复杂，故事的连贯性在文学评论中常被诟病。但在我看来，却是最最完整，最最连贯的一本村上小说。</p><p id="12bff9be-4427-4024-8c85-8370713b6baa" class="">书中有一段，乍看上去摸不着头脑的，两个警察找主角麻烦的故事。</p><p id="a53212f8-1dae-44ef-bd3b-65770cf5fca1" class="">这对于读者来说，恐怕确实是一处败笔。</p><p id="256a6de1-8960-48ac-a8e2-f3c46c61577a" class="">但对于村上来说，他太想写了。</p><p id="59acb152-39ce-45f4-89bb-62be0dc304b4" class="">对村上熟悉的读者，一定知道《漫长的告别》及作者钱德勒对村上有很深远的影响。而钱德勒的小说，几乎每本都有警察找主角麻烦的场景，算是一个经典符号。村上一定无论如何，都想写一次。无奈他的作品不是侦探小说，每每想写这种硬汉对峙场景，总是不太符合故事情境，怕是在《寻羊冒险记》中作了类似的场景，又涂改删除了好几次。</p><p id="178c7725-1678-490f-b36f-14b9f8ea1278" class="">
-</p><p id="1730f861-833f-4ad9-9152-be527a733691" class="">对于一个作家，能肆无忌惮的把自己想写的内容全部写出来，不去在意叙事结构，合理性，一定是一件非常幸福的事。</p><p id="72296e28-0bfb-43a4-a469-4d7a3540d62b" class="">对于一个读者，能够碰巧喜欢所有这些元素，与作者极其文字发生共鸣，不去头痛理解成本，连贯性，当然也是一件非常幸福的事。</p><p id="ada9c6d8-2fa2-4d6a-9632-c38c4685e041" class="">所以，《舞！舞！舞！》成了我最喜欢的长篇作品。</p><p id="65f337e3-ae9b-4233-aa2e-59f084f45f5b" class="">
+</style></head><body><article id="3c055073-9d04-4dbf-a442-78433a449a20" class="page sans"><header><img class="page-cover-image" src="Untitled%206/1163c464ba61dd0f86daae5392e556a3.jpg" style="object-position:center 50%"/><h1 class="page-title">《舞舞舞》</h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Author</th><td><span class="selected-value select-value-color-pink">村上春树</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Score /5</th><td><span class="selected-value select-value-color-default">⭐️⭐️⭐️⭐️⭐️</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Summary</th><td>西海岸没那么美好 ，歌舞伎町也没那么糟。但文化出口再进口，却塑造出了现实中不存在的美妙景观。</td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Type</th><td><span class="selected-value select-value-color-red">后现代主义</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>主题</th><td>最喜欢的长篇作品</td></tr><tr class="property-row property-row-number"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>挑战天数</th><td>8</td></tr></tbody></table></header><div class="page-body"><h1 id="97b1513c-e2dc-47ca-8f75-b5b8b081f7dd" class="">Day08-最喜欢的长篇作品</h1><p id="ebc6c285-4b86-4c17-80f7-9487090d1a34" class="">《舞！舞！舞！》村上春树  #30天推书挑战#</p><hr id="3cb7fb36-3dac-48c8-af98-e2112de948f1"/><h2 id="2c8932f3-b0d0-415b-af09-c8484097ab1c" class="">其一-为何，村上？</h2><p id="0a3f5da9-bcbb-4cfc-aa75-d0951b4a53b1" class="">村上春树是在全世界范围内都算高人气的畅销作家。</p><p id="7f141bf6-0893-4964-bee3-1e98c9b175fb" class="">
+</p><p id="b1288919-7411-475f-bc99-a41214d82ed7" class="">有趣的是，村上春树的作品元素单拎出来看，并没有能够支撑起畅销书的元素。</p><p id="c9cc849f-74ce-43df-9754-09655a79c686" class="">
+</p><p id="ef55b8a2-da27-4410-a377-f552e9aaf47b" class="">社会边缘人，超现实故事，大段无关文字，古怪的翻译腔。</p><p id="33b08802-50d0-4254-9c2a-7752c2940cb2" class="">
+</p><p id="d5dfb05b-10ff-472d-a9bb-b0c8ef86346a" class="">这稍微有点反常。</p><p id="3602057c-6403-4b32-9a4c-62394477a24e" class="">
+</p><h2 id="b921107c-1492-4576-90b7-20e97d33cfb1" class="">其二-非《挪威的森林》？</h2><p id="605751fc-6249-4d90-be87-5bde78949791" class="">村上春树的长篇作品里，最最出名的当然非《挪威的森林》莫属。</p><p id="04483624-188c-408b-8fb5-c06ddccb9274" class="">
+</p><p id="ed8830ed-f81a-45fd-aada-ffd2703f6cb3" class="">而我却不知为何，单单钟情于 《舞舞舞》。</p><p id="a2c8a869-4ef0-4b8f-99f8-3753131c0e82" class="">
+</p><h2 id="cc3034d7-7cb7-4c5a-a640-8a7498dd5a30" class="">其三-解构《舞！x3》</h2><p id="ba2bdd21-211b-441f-a4e3-36f05466a976" class="">《舞舞舞》这本书很有意思的一点是，它穿插式的讲了许多个，一句话就能讲明白的故事，这包括：<div class="indented"><p id="03b1f096-1826-4fa2-b41c-fae5e9047cb3" class="">
+</p><p id="28a1539c-bcf5-463b-af42-4943af7e4f2a" class="">-与酒店服务生的简单爱情</p><p id="1b15f79d-8391-474f-b6b9-ac2fd4c187f5" class="">
+</p><p id="6397b6fc-10de-470c-932e-0d28c456c978" class="">-漫无目的寻找梦中情人</p><p id="a7b5b6d6-92fe-49cc-a2fa-13986dce9f7b" class="">
+</p><p id="5ced29f9-dfac-43fc-9314-23199fc71ea8" class="">-作为一线明星好友的交心对象，一起大保健</p><p id="6b0fcf4a-35a3-4a0a-8296-6d3f3b4a5397" class="">
+</p><p id="a80d911b-79f0-487e-a659-50375b13b2bd" class="">-大叔和青春期少女的心跳旅行见闻</p><p id="7acc1ac3-7bdc-4b61-9695-dfef87193b64" class="">
+</p><p id="d15fc0ed-9161-4532-8539-8271038eb5c0" class="">-针对高级女郎的连环杀人案</p><p id="00a0feef-4cfb-49c4-ba97-e1e0c845fdb9" class="">
+</p><p id="79736d83-697c-485c-ab31-6cf9684d6b48" class="">-神神叨叨，海豚宾馆的都市传说</p><p id="7b964f18-7d47-4bd6-99b1-d9e73c231e18" class="">
+</p></div></p><p id="6f8c06ec-8664-48b2-9f51-7ecac5784b2e" class="">如果说《国境以南，太阳以西》是满溢其气味让人望而却步的伏特加，《挪威的森林》是味淡却渐感凉意的清酒，那《舞舞舞》大概是西海岸阳光下，一杯摸不着头脑的鸡尾酒，你以为这是饮料，一饮而下——</p><p id="ec41cade-be8c-435e-8df9-a730e13dbf7c" class="">
+</p><p id="a5a223c8-436e-428f-8910-4be4ff45aa42" class="">却不知，脚下沙滩是否为实在，眼中霓虹是否为虚幻。</p><p id="4c703030-15b3-44e0-bd97-ffe0ee1f53ca" class="">
+</p><p id="d8150ae4-c4bf-4d99-af2b-80e440ccd663" class="">在我看来，这像极了赛博朋克描写下的东方，又像极了90年代J-POP歌颂的西方。</p><p id="4a2f15cb-7bdb-4949-9c85-6478150ba804" class="">
+</p><p id="918fcda7-df39-46d9-96a2-d648bcd65d6d" class="">西海岸没那么美好 ，歌舞伎町也没那么糟。但文化出口再进口，却塑造出了现实中不存在的美妙景观。</p><p id="3f55957f-ce0a-466a-b312-a9564fd7610d" class="">
+</p><h2 id="13bcad12-03e7-4ec7-bdba-deca805799cf" class="">其四-《舞舞舞》吸引人之处</h2><p id="f64d46c9-b2c7-4dcc-bb16-8b2c818eff15" class="">按村上的作品年表来看，在《舞舞舞》之前的作品，写作重心以及主旨是这样延伸的：</p><p id="2d326444-c415-45df-aee9-cae1a5299299" class="">
+</p><p id="5adfba7e-f6a1-4326-8699-578755a51ac4" class="">《且听风吟》——阅读，恋爱，友情，崩溃</p><p id="8c3205f2-2670-48ab-8e95-a48e03d9c143" class="">告别青春。</p><p id="6106dcbe-f057-40e6-a20d-d03bc8a2f3d8" class="">
+</p><p id="91abe7d9-de1c-4fc8-ba8f-e5310e840d26" class="">《1973的弹子球》——酒吧，弹子球机，短暂关系</p><p id="656e2183-7e18-4fa6-bb1c-9d1ff8fa40bd" class="">理解孤独。</p><p id="711ff149-513a-4c15-b785-5b05192d4abe" class="">
+</p><p id="61a210ea-76f1-418a-8427-57ee79e13a4b" class="">《寻羊冒险记》——脱离日常，追逐真相，面对未知</p><p id="b24287e0-9ecb-4416-a71d-819aaec1fad0" class="">复归勇气。</p><p id="df354781-e614-4940-bb7d-6263cd7fc7fc" class="">
+</p><p id="959a3a7d-f3d8-4d18-b978-53a361cc77e5" class="">《世界尽头与冷酷仙境》——阴影，阴谋，觉醒，逃离</p><p id="da13b717-cf97-4715-b643-0cf6120edc42" class="">寻找意义。</p><p id="6835536a-ad9e-49db-babb-e3bfc1fcd972" class="">
+</p><p id="6091282a-f392-47ed-b277-bc07cc045a2b" class="">《挪威的森林》——摇摆，恐惧，内耗，定局</p><p id="47801b78-4f7e-42d3-bb33-d0956d8b66c6" class="">学会接受。</p><p id="0166e5c7-ea4f-4d6c-95e5-60ad7ffeb125" class="">
+</p><p id="11103489-e2f2-4be9-a9bf-cc6d807fa948" class="">《舞舞舞》呢？</p><p id="e745eacb-8f73-4290-8622-9f10d4e4031b" class="">
+</p><p id="07b22f09-35ee-4411-87e4-95398111f666" class="">包含一个“离去-寻梦-接受”的爱情故事。</p><p id="92bb3815-753c-4c22-b53e-0563d64863a3" class="">
+</p><p id="474576a5-39b9-4a01-b37f-a7b5241abcc4" class="">包含 一个“追逐真相”的悬疑故事。</p><p id="8629d596-8e34-4f04-a463-1b0630aad754" class="">
+</p><p id="b207cf0d-954d-4197-b551-a94fcc273fe8" class="">包含一个“短暂关系”的旅行故事。</p><p id="16e1fe84-05a3-44e5-85bd-51e94379e7ab" class="">
+</p><p id="8dd59448-a8cc-4b9c-b877-92b254cd9306" class="">包含一个“交心朋友”的悲剧故事。</p><p id="b403b61a-91b3-486a-ab7a-44e1cdc4b141" class="">
+</p><p id="f83961c9-3917-4a7f-a0dc-1f10ec7910da" class="">包含一个“克服内心”的恐怖故事。</p><p id="ac964c3a-507b-407b-996a-cfa3cd10917f" class="">
+</p><p id="5edfc154-4e0f-4cb8-86d2-155832d67a0e" class="">我想说什么呢？不是说村上对着自己作品的梗概生搬硬套，在玩语言游戏。</p><p id="318beb07-06e8-4325-bc52-637b7080c0a5" class="">
+</p><p id="3de425cb-7ab3-48b4-bdd6-fd7be7aab6ea" class="">只是自然而然的，一个作家把自己想写的东西都写出来，并且这一次不再顾及故事如何，终于心满意足的写完了。</p><p id="4b45ade6-6128-41a0-9de9-96a5ad55123a" class="">
+</p><p id="914cf5a6-746d-4e0d-b77f-7f6e52280e58" class="">《舞舞舞》由于剧情上，时间，地点，人物的结构太过复杂，故事的连贯性在文学评论中常被诟病。但在我看来，却是最最完整，最最连贯的一本村上小说。</p><p id="70bb788b-3a99-4870-a109-e3b5df917608" class="">
+</p><p id="12bff9be-4427-4024-8c85-8370713b6baa" class="">书中有一段，乍看上去摸不着头脑的，两个警察找主角麻烦的故事。</p><p id="4bcc00fd-4cfa-44c9-8afb-d68f387ec33d" class="">
+</p><p id="a53212f8-1dae-44ef-bd3b-65770cf5fca1" class="">这对于读者来说，恐怕确实是一处败笔。</p><p id="3a06198e-aa85-4035-a7f2-701955d9b050" class="">
+</p><p id="256a6de1-8960-48ac-a8e2-f3c46c61577a" class="">但对于村上来说，他太想写了。</p><p id="4a401e6d-9fe8-4ca8-b896-492769cec243" class="">
+</p><p id="59acb152-39ce-45f4-89bb-62be0dc304b4" class="">对村上熟悉的读者，一定知道《漫长的告别》及作者钱德勒对村上有很深远的影响。而钱德勒的小说，几乎每本都有警察找主角麻烦的场景，算是一个经典符号。村上一定无论如何，都想写一次。无奈他的作品不是侦探小说，每每想写这种硬汉对峙场景，总是不太符合故事情境，怕是在《寻羊冒险记》中作了类似的场景，又涂改删除了好几次。</p><p id="178c7725-1678-490f-b36f-14b9f8ea1278" class="">
+</p><p id="1730f861-833f-4ad9-9152-be527a733691" class="">对于一个作家，能肆无忌惮的把自己想写的内容全部写出来，不去在意叙事结构，合理性，一定是一件非常幸福的事。</p><p id="4981393e-020e-4c41-b0a4-08d959a98c95" class="">
+</p><p id="72296e28-0bfb-43a4-a469-4d7a3540d62b" class="">对于一个读者，能够碰巧喜欢所有这些元素，与作者极其文字发生共鸣，不去头痛理解成本，连贯性，当然也是一件非常幸福的事。</p><p id="34d2d786-8b0f-4865-9348-d0291ea46faa" class="">
+</p><p id="ada9c6d8-2fa2-4d6a-9632-c38c4685e041" class="">所以，《舞！舞！舞！》成了我最喜欢的长篇作品。</p><p id="65f337e3-ae9b-4233-aa2e-59f084f45f5b" class="">
 </p><p id="2a7ddbe7-b8b9-4973-86bd-962f157d9d53" class="">在《舞！舞！舞！》中完成的这种，肆无忌惮的刻画人物，转换场景，降下转折的写作风格。一定也为之后村上彻彻底底的超现实主义转向，提供了养分吧。</p><p id="27774939-eff2-43e7-9751-3f19f49aa1a6" class="">
-</p><p id="a56c654c-1a6d-47a7-bcf3-4802e30956af" class="">终点亦是起点，转完一圈再转下一圈。</p><p id="16d9fdba-02dc-4703-9133-c3cc39d31071" class="">舞！舞！舞！</p></div></article></body></html>
+</p><p id="a56c654c-1a6d-47a7-bcf3-4802e30956af" class="">终点亦是起点，转完一圈再转下一圈。</p><p id="77641c08-9e62-43cf-9480-6e4f5264e7c5" class="">
+</p><p id="16d9fdba-02dc-4703-9133-c3cc39d31071" class="">舞！舞！舞！</p></div></article></body></html>

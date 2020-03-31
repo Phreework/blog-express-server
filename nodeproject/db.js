@@ -35,7 +35,8 @@ var EssaySchema = new mongoose.Schema({
     time:Date,
     summary:String,
     content:String,
-    path:String
+    path:String,
+    tagList:Array
 });
 var Essay = mongoose.model('essay', EssaySchema);
 

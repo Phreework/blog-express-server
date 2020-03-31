@@ -1,0 +1,671 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>《存在与时间》</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="43121971-caf2-4b78-baa8-77aa3babf195" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/met_vincent_van_gogh_cradle.jpg" style="object-position:center 80%"/><h1 class="page-title">《存在与时间》</h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Author</th><td><span class="selected-value select-value-color-default">马丁·海德格尔</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Score /5</th><td><span class="selected-value select-value-color-default">⭐️⭐️⭐️⭐️⭐️</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Summary</th><td>“当你用‘存在者’这个词的时候，显然你们已经早就熟悉这究竟是什么意思，不过，虽然我们也曾相信领会了它，现在却茫然失措了。”</td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Type</th><td><span class="selected-value select-value-color-red">后现代主义</span><span class="selected-value select-value-color-pink">哲学</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>主题</th><td>描写未来的一本书</td></tr><tr class="property-row property-row-number"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>挑战天数</th><td>14</td></tr></tbody></table></header><div class="page-body"><h1 id="4950a8e6-89c7-4c60-a4cd-640121a14aca" class="">Day14-描写未来的一本书</h1><p id="33cf6c74-99eb-4df3-ad12-976e5e987690" class="">《存在与时间》马丁·海德格尔  #30天推书挑战#</p><hr id="83542e4e-32a8-4f19-ad72-d9304d697bf1"/><h3 id="7d028cf9-5c7d-4d79-bc68-36419914ab38" class="">海德格尔</h3><p id="2f9ce743-8bba-484f-8196-378ab6af4d05" class="">马丁·海德格尔（1889－1976）是德国哲学家，在现象学、存在主义、解构主义、诠释学、后现代主义、政治理论、心理学及神学有举足轻重的影响。</p><p id="e01a0a27-0d3c-48b9-9f07-5e428f432f18" class="">
+</p><p id="be4943ce-3d69-4703-80af-37af519dd52c" class="">作为二十世纪最重要的哲学家之一，他的思想深入了各个领域。</p><p id="19f12112-2871-43e4-858c-705ff15c1f0d" class="">
+</p><p id="86da25ea-4b25-41ca-b1da-0bd1ce75bdb2" class="">他师从胡塞尔，对现象学有深入的研究；又与维特根斯坦一起，开启了整个后现代主义对语言的反思；同时他也是尼采的反理性在二十世纪的延续。</p><p id="37f85701-8166-4a54-97af-8f51c2ce7314" class="">
+</p><p id="7cc8c6b6-857c-4cbb-be6b-cdcc61c35ae0" class="">而在海德格尔浩繁的哲学研究中，最重要的，对哲学发展最重要的，是其对存在的追问。</p><p id="a1a1f364-6589-4afe-a85b-b9f713ecda55" class="">
+</p><p id="82f0ac2d-88ff-4d06-b561-ee4e76749448" class="">其代表作《存在与时间》，是一本推翻之前所有哲学研究的路径，深刻的对哲学之根进行追问，并另辟蹊径，开辟了存在研究的重要文本。</p><p id="3ff4451f-46a0-4538-a62e-a5048679e47e" class="">
+</p><p id="1f0b25fa-8f84-44da-8472-e4dae9bbe9a0" class="">海德格尔在《存在与时间》中写到，献给吾友吾师胡塞尔，有人认为海德格尔的研究根本不是现象学，而胡塞尔也在自己买的《存在与时间》扉页上写下了亚里士多德的名言：“吾爱吾师柏拉图，吾更爱真理”。足见《存在与时间》作为哲学著作在20世纪的独特性。</p><p id="951b144e-c919-43c1-9af1-4e71af95c2af" class="">
+</p><p id="a8d86439-1e35-4d59-b7d2-5a0feba98eac" class="">那么，作为哲学研究的《存在与时间》是如何描写了未来呢？</p><p id="5b3f2552-4d79-4ff9-b5b9-b2c98a1fee01" class="">
+</p><p id="2d7a3c9c-e518-4d09-8e24-b9efdb634d2a" class="">把这个问题留在最后。</p><p id="236eab78-10db-41d8-af3f-fb9081065495" class="">
+</p><p id="fb17d604-674d-4d6e-ab89-4dce071f4c2a" class="">我们先谈谈存在。</p><p id="6067c33d-ee6c-49f3-a190-882704b6617d" class="">
+</p><h3 id="bd1fe4d1-5631-4b13-9489-f1ef83507537" class="">泰坦之争</h3><p id="67a51dcd-e260-44d9-8903-24048bd98f9c" class="">《存在与时间》是相当强有力的哲学书籍，这种强有力不仅在于其观点的振聋发聩，也在于基于德意志语言阴沉而干脆的表达。这本书的第一章以这样一句话开始：</p><p id="0c3fe32f-a4bc-45ae-bf30-76a592ca4306" class="">“存在之争是泰坦之争”。</p><p id="be0a6ac4-8d79-432a-90e2-bf00035bdd48" class="">
+</p><p id="282b840e-9ca7-401c-a11d-6308b2b139c6" class="">泰坦指的不是一般意义上的巨人，不是”giant“，而是”titan“，这个意象指的是神话时代的巨神，在中国文化的语境里类似于山海经中的鲲鹏，可以感受作者在形容存在问题时展现的强大语言魄力。</p><p id="2819405a-c79e-4932-a182-f14547794b89" class="">
+</p><p id="82b9fbd1-7342-409d-960f-14a5f4ef7013" class="">紧接着，海德格尔引用了一句柏拉图的名言，引出之后对存在问题的辨析：</p><p id="8ad666f9-eab7-4e8f-bbb4-cc2e2e83872a" class="">“当你用‘存在者’这个词的时候，显然你们已经早就熟悉这究竟是什么意思，不过，虽然我们也曾相信领会了它，现在却茫然失措了。”</p><p id="79218e2c-0d08-40ba-b755-14c8f7ba0b54" class="">
+</p><p id="5d2354fe-e7f4-4729-b28f-a38674c7af78" class="">存在有两种解释，”is“和”exist“。而在这里柏拉图说的应该是”is“，也就是说，虽然我们经常说什么是什么，但&quot;是&quot;(&quot;is&quot;)到底是什么，我们却从未弄清楚。</p><p id="5e2a3672-a0d9-4281-a5b8-2ce1d0c34f29" class="">
+</p><p id="b87c9864-1e10-4940-8bc5-3a8f58781af7" class="">而之后，海德格尔又作了强有力的断言：</p><p id="f4e6aa24-e85d-4134-971e-897523f6604d" class="">”两千年的西方哲学史，就是一部存在的遗忘史。“</p><p id="561b2587-d7ce-47e0-b980-d6b9cc111883" class="">
+</p><p id="070119d0-0ce2-4ca9-8c56-fb4ce95977e9" class="">海德格尔认为，西方哲学只记得存在者，而遗忘了存在。</p><p id="df8041b2-b30b-4940-8c6a-feb02af10e26" class="">
+</p><p id="fd3300b6-9366-49bb-9fe7-91842d05bcdd" class="">存在问题曾令柏拉图和亚里士多德殚精竭虑，而在之后的哲学发展路径中，存在问题没有被后来者重视，对于存在问题的研究被无限的耽搁了。</p><p id="878cdca6-357f-4585-b370-d41e7dba0037" class="">
+</p><p id="d0cec538-128c-4876-bfc4-2c7d78d2ee11" class="">存在者和存在有什么区别呢？存在者是存在的存在。比如一棵树，一块石头，我这个人，都是存在者。而存在，是一种生存状态，我们这里说的存在，一般说的”存在主义“，指的其实是”生存“（existence），而不是存在（being）。</p><p id="ae53ce7a-f5cf-4b5d-aeef-f8271f27c38a" class="">
+</p><p id="b7bf49b4-b9ed-4991-8e28-59b79d58034c" class="">海德格尔认为我们虽然谈”being“，却不知道如何”becoming“。我们言必称自己是什么样的人，却从未真正分辨”如何是“，而海德格尔正是重提存在 ，并从存在者”如何是“存在，来揭示什么是存在。</p><p id="341c3107-ae0f-460b-87cf-0840e42d58f0" class="">
+</p><p id="38341222-020f-4f8c-b80b-8369af822552" class="">海德格尔还认为，人是一种特殊的存在者，是一种对自己的存在有所领会的存在者，这种特殊的存在者被称为此在（德文Dasein）。</p><p id="71ec459f-f91d-4ed5-853d-c0d635f48546" class="">
+</p><p id="ad9c13fa-75be-4a6c-ac29-52cca2957355" class="">讲到这里可能有点绕，不过要是能够被我用几百字讲清楚，海德格尔就不用写这本《存在与时间》来讨论存在问题了。</p><p id="f2893025-4cf1-4b36-abb7-bcef37c164df" class="">
+</p><p id="d4c527eb-ce10-4df3-b59b-edc64f632aec" class="">总结一下，海德格尔对存在(德文Sein)、此在(德文Dasein)、生存(Existence)的界定是这样的：</p><p id="3809235f-3139-4480-affc-84b854fbc7d4" class="">1、存在（Sein）总是存在者的存在。存在者就是世间万物，凡是可以说它存在的就是存在者。</p><p id="bbb57ae1-b859-4282-9089-e8db9e42f0fe" class="">2、此在(Dasein)是对自身的存在有所领会的存在者，是一类特殊的存在者。具体来说，人就是一种此在，而石头则不是。</p><p id="8cd6e166-07b1-4cad-9f11-855fdb5e7d34" class="">3、生存(Existence)就是此在的存在，也就是此在的存在方式</p><p id="6cfb6565-aaab-47a5-ae48-37798a6fe4bd" class="">
+</p><p id="500b44fe-6ddf-4429-8f53-2592c687a052" class="">要问”存在主义“中的“存在”是什么意思，到这里为止就已经给出了一个初步界定。</p><p id="ad75ee2e-833d-41e1-b5f8-8e2a9f7bcd6c" class="">
+</p><p id="20b39d67-4320-477f-bbb9-93dfa9e12342" class="">所以，存在问题为什么如此重要，为什么存在之争是泰坦之争。因为我们如何领悟存在，我们就如何存在，如果没法很好的领悟存在，就活不好。</p><p id="6632d51f-697d-4f80-bc04-d6514cff8e58" class="">
+</p><p id="45cdb1b2-1648-49e4-8b26-8b0641d89a20" class="">现如今，很多人在放弃自己的能在（指向未来的存在，存在者的可能性），我们在无尽的未来规划中放弃了”领会“，或在对其他成功此在的模仿中，放弃了自己的个殊性，从一个独特的此在（Dasein）退化为一个普通的存在者，失去了能在，成为一种”众生“，甚至一种”人力资源“，也就跟石头与树无异了。</p><p id="bba2dec4-1482-4abe-bb9d-aaa2be24e12c" class="">
+</p><p id="620925d5-f86a-4a67-b310-486b69c881d4" class="">那么，如何领会存在，显然没法把海德格尔的思想讲的明明白白，感兴趣可以去看原本，我在这里讲一种容易领会存在的特殊情况，这就是”向死而生“。</p><p id="f4586c8f-e75f-4923-b7ef-c722f3536fce" class="">
+</p><h3 id="58d34441-23cd-4ea6-8dad-7b9d35cab91b" class="">向死而生</h3><p id="76fc0d4a-b17b-4ec4-b4ef-9c09b6c4b775" class="">置之死地而后生。</p><p id="86b769c8-013a-442a-9b5c-984e48e162f0" class="">
+</p><p id="83fcda87-1e35-49b9-92f5-50a418461ae3" class="">人之将死，其言也善。</p><p id="c0898457-9991-4ec2-b108-8b4b74047696" class="">
+</p><p id="bf210449-9043-465a-adad-f04a3d0dc1b8" class="">从古代的哲人哲语中，我们便能感性的认识到，死亡会对存在产生重要的影响。</p><p id="1d84eaf9-d369-424d-8a50-dcb09a21dffd" class="">
+</p><p id="cfddeee7-a87d-4e05-91d3-2286d9af1ddc" class="">有很多人在面对死亡，例如得了癌症，被判死刑等，这种境遇会使此在对存在有更好的领会。确实，有很多艺术家都在贴近死亡的边缘状态中，创作出了深刻的作品。我们身边也经常有这样的此在，在面对疾病的绝望中，反而明确了自己的生活目标，能够在仅剩的时间中找到使命，活出意义。</p><p id="48ba3bd3-b275-4370-aadb-a831fcaeb635" class="">
+</p><p id="18fd313a-b429-4a55-ac50-fd18427be795" class="">此在对存在有所领会，存在是一种生存状态，所以未来的可能性是对此在敞开的。而死亡确实是一种非常特殊的面向未来的情景。</p><p id="fb812e3a-0b1e-4a35-b4f3-17f330b5bcea" class="">
+</p><p id="5e4222a2-453e-40f2-9a13-b4a6d6a724d7" class="">死亡使人处于完全孤立的境遇之中，使其意识到，没有任何人能够帮助分担死亡，只有自己面对死亡。这让沉沦之人认识到存在只属于自己的特征，没有任何其他的此在能够向其分享死亡的经验。所以，在面对必死的境遇时，面向死亡的有限却又具有超越性的未来向此在敞开。</p><p id="5787196a-33ec-437d-bc7f-aa8f128314fb" class="">
+</p><p id="74419b35-f0f6-486f-9129-d33c173888f2" class="">面对死亡的状态，赋予此在一种完整性。当人面对几乎无限的时间时，没办法做真正有意义的规划。而在面对死亡时，确切的知道自己只剩2-3月的时间时，他方能够真正确切的规划自己的未来，从现代社会生活中解放出来，夺回属于自己的可能性。</p><p id="dc5aaf02-ed2b-4d65-b327-d638493d49a2" class="">
+</p><p id="e7ad98a6-f50c-4afe-9d97-dabc83e90b89" class="">这种对垂死之人敞开的可能性是有强烈启示性的，向死而生使人找到自己的天命。在有限的时间下，此在能着眼于个人的整体，对真正重要的事情做出人生规划。于普通人而言，可能认为自己的兴趣便是自我的使命。而当处于即将面对死亡的状态之时，却不一定会认为兴趣是使命，他可能发现与家人的关系是自己最重要的使命，可能发现弄清楚一个困扰多年的真相是自己最重要的使命。迫在眉睫的死亡，确实使此在处于一种决心状态，回溯到自己的源头，而不顾及常人的看法和智慧，接近本真状态。</p><p id="b17a2598-c3b0-4158-b997-94f72bc9d326" class="">
+</p><p id="a18acfe6-5c18-4723-a9fa-58f5f1d40d0f" class="">而对于幸运又不幸的，并不处于即将死亡状态的我们，“向死而生”是指逐渐使自己能面向未来敞开，逐渐使自己能认识到存在问题必须由此在自己来面对，逐渐摆脱社会和其他看法带来的困扰，寻找到自己真正的天命所在。</p><p id="735b7772-9347-44dd-8d4b-851842888b16" class="">
+</p><h3 id="4e9646fa-0c2f-4ad8-8be3-c912d09a2161" class="">技术反思</h3><p id="aee5ee09-d6d8-4e18-a3c8-080bc6bef82e" class="">“然而，它递给我一只散发着芬芳的酒杯，里边盛满了黑暗的光明。”</p><p id="da774245-9a3e-4118-9df2-8930c5877b99" class="">——《怀念》荷尔德林</p><p id="68914a8f-2c95-42fd-8925-7abc7ba71dcd" class="">
+</p><p id="0b8f76e2-1504-4b46-932b-bd5a5df85b06" class="">海德格尔对这句诗做了这样的解释：“此光明不再是发散于一片赤裸裸的光亮中的光明或澄明，‘比一千个太阳还亮’。困难的倒是去保存此黑暗的清澈；也就是说，去防止那不合宜的光亮的混入。”</p><p id="e3892a50-8187-49d9-813a-1e8d28922afc" class="">
+</p><p id="3c829366-55ac-498f-8bbd-077014e319d3" class="">这里的“比一千个太阳还亮”很明显是指原子弹，许多哲学家和科学家都对原子弹技术发表过评价，而海德格尔结合荷尔德林的诗进行的解释，是其中非常具有真感的。</p><p id="228d8f27-3591-4c4c-b158-94422e091cff" class="">
+</p><p id="e8c1f691-9f6d-49cb-921a-5299eb5ce014" class="">如今，我们被牵扯到了各种各样的技术之中，服从于软件开发的规律进行“996”的工作，被网络媒体的技术搁入到过载的信息海洋中，为治疗疾病导致抗生素滥用和超级细菌的产生。确实，与点亮光明相比，保存黑暗的清澈反而是更难得得。</p><p id="5aa5bf3f-b292-4c74-8943-69c293ef7080" class="">
+</p><p id="24d2333f-a6a1-4aed-9995-499197c78dce" class="">海德格尔认可老子“知其白，守其黑”的道理，对技术中“不合时宜的光亮”的反思是海德格尔后期最重要的议题。</p><p id="de1a66df-e0c2-4af8-9ede-048fb8a96354" class="">
+</p><p id="a0cfa1e6-e1a5-445b-a49d-8a0dd42a92eb" class="">海德格尔超前的对技术进行了深刻的反思，而其反思的角度并不是从技术的应用上切入的，而是直指更根本的问题——技术遮蔽存在。</p><p id="34a3ae78-50a6-41f9-9690-08f66fa6d20b" class="">
+</p><p id="886aa0bc-05bb-4346-b01a-359c7f527ad7" class="">技术为何遮蔽存在？海德格尔认为，存在者利用自然的方式包括带出和挑起，技术也分为带出的技术和挑起的技术。“挑起”（Herausfordern）这个词的日常含义是无事生非的“挑衅”和制造事端，海德格尔用它来表示现代技术的去蔽方式。</p><p id="e242ae0c-b164-4153-a45d-d32cd6cd1ea9" class="">
+</p><p id="ce548a6b-e69c-4bc1-83b4-caa0933bd064" class="">“带出”总是由遮蔽状态而来进入无蔽状态，带出是即时发生的，比如打猎的技术，使古人能够解决当下的生存，既是对存在的去弊，也是自然真理的一种发生方式。</p><p id="f963847a-bbb7-4716-8746-e9c3b09c4739" class="">
+</p><p id="c9f073a9-2707-4fa6-9c56-7d0084d8f124" class="">现代技术不然。它向自然提出挑战，迫使自然应对挑战，逼迫自然提供出能够被打开和贮存的能量。现代技术“制造”一些全“新”的“事端”。古代的风车也利用风能，但它直接听任风的吹拂，它没有把风能固定下来、贮存起来，风能在古代风车那里保持着那种当场发生性，既没有脱离风的吹拂，也没有脱离风车“带出”般的运作。贮存意味着向一种持续的在场转化，它打破那种在场的关联结构，使物脱离场景的成为贮存物，以便随时随地被打开使用。</p><p id="ff4db883-1e25-49a6-bccf-e104567f1c7e" class="">
+</p><p id="f4586c6f-25b4-46b0-9f53-a1bb2d06fae0" class="">而考虑“挑起”的技术，最好的例子，恰恰是使用人的技术。</p><p id="1cf4a5db-c5d4-4391-978e-3d2b9cdb7fb2" class="">
+</p><p id="10dd2127-c925-4b1f-acd7-6d556bdb85eb" class="">我们在无限的社会规划中，把自己的未来纳入到其中去考虑，安排自己在四个月后的黄金周休假，安排自己在5年后买房，在7年后生孩子，在30年后退休。</p><p id="d6e2f0a4-8308-479f-878d-a758dd14f193" class="">
+</p><p id="e0491e6e-f538-4ba8-b83a-fb30dbc25df1" class="">这种向社会妥协的未来规划，在存在的角度看，便是此在自己断送了自己的能在，使得面向未来的可能性被遮蔽，进而遮蔽存在，成为与石头无异的存在者，成为其他此在挑起的资源。</p><p id="dc9474f3-fc65-4137-9f55-7cd9b82608eb" class="">
+</p><p id="a2552251-0d06-4289-9d96-61dd06c7a28b" class="">人被技术挑起，被迫应对挑战，被迫提供自身长远未来的能量和时间，因此人这种此在，退化为一种普通的物，成为了被技术挑起的资源，进入了存在被遮蔽的状态。</p><p id="5ca63bb6-91b1-4a7b-99dd-ce5917aced00" class="">
+</p><p id="48af57de-9cca-4fdc-aa5e-a72db015aa07" class="">愿你能认真思考海德格尔对于技术反思独特而充满真知的论述，对人如何摆脱现代技术的桎梏有所思考，重新找回存在之道。</p><p id="cf16fa7f-a509-4c70-86f7-35a323199301" class="">
+</p><p id="0caff1c8-315a-41c3-9378-2e27126f586b" class="">这本《存在与时间》将未来向你敞开。</p><p id="0a549485-1e0d-4e0e-aff7-10413d25b807" class="">
+</p><p id="29082be9-5f98-4020-a20c-342cb10ee377" class="">“当你用‘存在者’这个词的时候，显然你们已经早就熟悉这究竟是什么意思，不过，虽然我们也曾相信领会了它，现在却茫然失措了。”</p></div></article></body></html>

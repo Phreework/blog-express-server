@@ -30,6 +30,7 @@ exports.submit = function (dir) {
         var originHtml = req.files['htmlfile'][0];//获取图片上传后multer封装好的对象
         var name = req.body.name;
         var summary = req.body.summary;
+        var tagList = req.body.tag.split("|");
         let root = path.join(__dirname, '../public/essayimages/');
         const rs = fs.createReadStream(root + originHtml.filename);
 
@@ -44,23 +45,33 @@ exports.submit = function (dir) {
             let start = htmlStr.indexOf("<article");
             let end = htmlStr.indexOf("</article>");
             htmlStr = htmlStr.slice(start,end+10);
-
+            console.log({name: name,
+                time: new Date().toUTCString(),
+                summary: summary,
+                content: htmlStr,
+                path: img.originalname,
+                tagList:tagList})
             //console.log(data);
             Essay.create({
                 name: name,
                 time: new Date().toUTCString(),
                 summary: summary,
                 content: htmlStr,
-                path: img.originalname
+                path: img.originalname,
+                tagList:tagList
             }, function (err) {
                 if (err) {
                     return next(err);
                 }
                 //保存成功后跳转到首页
-                //res.redirect('/upload');
+                res.redirect('/essay');
                 console.log("储存一条文章信息成功！")
             });
         })
+        rs.on('finish', function() {
+            console.log("写入完成。");
+        });
+        
         // 监听错误
         rs.on('error', function (err) {
             console.log(err);
